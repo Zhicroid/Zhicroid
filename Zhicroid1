@@ -1,0 +1,4109 @@
+{
+  "log": {
+    "disabled": false,
+    "level": "info",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "proxyDns",
+        "address": "8.8.8.8",
+        "detour": "select"
+      },
+      {
+        "tag": "localDns",
+        "address": "https://223.5.5.5/dns-query",
+        "detour": "direct"
+      },
+      {
+        "tag": "block",
+        "address": "rcode://success"
+      }
+    ],
+    "rules": [
+      {
+        "domain": [
+          "ghproxy.com",
+          "cdn.jsdelivr.net",
+          "testingcf.jsdelivr.net"
+        ],
+        "server": "localDns"
+      },
+      {
+        "geosite": [
+          "category-ads-all"
+        ],
+        "server": "block"
+      },
+      {
+        "server": "localDns",
+        "outbound": "any",
+        "disable_cache": true
+      },
+      {
+        "geosite": [
+          "cn"
+        ],
+        "server": "localDns"
+      },
+      {
+        "server": "localDns",
+        "clash_mode": "direct"
+      },
+      {
+        "server": "proxyDns",
+        "clash_mode": "global"
+      },
+      {
+        "geosite": [
+          "geolocation-!cn"
+        ],
+        "server": "proxyDns"
+      }
+    ],
+    "strategy": "ipv4_only"
+  },
+  "inbounds": [
+    {
+      "sniff": true,
+      "type": "mixed",
+      "listen": "127.0.0.1",
+      "listen_port": 1081
+    },
+    {
+      "stack": "system",
+      "auto_route": true,
+      "inet4_address": "172.19.0.1/30",
+      "mtu": 9000,
+      "sniff": true,
+      "strict_route": true,
+      "type": "tun",
+      "platform": {
+        "http_proxy": {
+          "enabled": true,
+          "server": "127.0.0.1",
+          "server_port": 1081
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "select",
+      "type": "selector",
+      "outbounds": [
+        "auto",
+        "@ShadowProxy66_85",
+        "@ShadowProxy66_79",
+        "Channel+id:+@ShadowProxy66+🇮🇷_1",
+        "@ShadowProxy66_84",
+        "@ShadowProxy66_83",
+        "@ShadowProxy66_121",
+        "Channel+id:+@ShadowProxy66🇭🇰",
+        "@ShadowProxy66_89",
+        "@ShadowProxy66_90",
+        "@ShadowProxy66_92",
+        "Channel+id:+@ShadowProxy66🇨🇦_1",
+        "Channel+id:+@ShadowProxy66_1",
+        "Channel+id:+@ShadowProxy66🇺🇸_1",
+        "@ShadowProxy66_91",
+        "Channel+id:+@ShadowProxy66+🇮🇷_2",
+        "Channel+id:+@ShadowProxy66_2",
+        "@ShadowProxy66_124",
+        "@ShadowProxy66_112",
+        "@ShadowProxy66_271",
+        "@ShadowProxy66_278",
+        "Channel+id:+@ShadowProxy66🇨🇦_2",
+        "@ShadowProxy66_125",
+        "Channel+id:+@ShadowProxy66🇺🇸_2",
+        "@ShadowProxy66_283",
+        "@ShadowProxy66_279",
+        "@ShadowProxy66_286",
+        "Channel+id:+@ShadowProxy66+🇬🇧_1",
+        "Channel+id:+@ShadowProxy66+_1",
+        "Channel+id:+@ShadowProxy66+🇨🇦_1",
+        "Channel+id:+@ShadowProxy66+🇨🇦_2",
+        "Channel+id:+@ShadowProxy66+🇬🇧_2",
+        "Channel id: @ShadowProxy66 🇬🇧",
+        "Channel+id:+@ShadowProxy66+🇨🇦_3",
+        "@ShadowProxy66_120",
+        "@ShadowProxy66_288",
+        "@ShadowProxy66_269",
+        "Channel+id:+@ShadowProxy66+_2",
+        "Channel+id:+@ShadowProxy66+🇬🇧_3",
+        "Channel+id:+@ShadowProxy66+🇨🇦_4",
+        "Channel+id:+@ShadowProxy66+🇬🇧_4",
+        "Channel+id:+@ShadowProxy66+🇨🇦_5",
+        "@ShadowProxy66_99",
+        "@ShadowProxy66_74",
+        "@ShadowProxy66_275",
+        "@ShadowProxy66_77",
+        "@ShadowProxy66_259",
+        "@ShadowProxy66_110",
+        "Channel+id:+@ShadowProxy66+_3",
+        "@ShadowProxy66_257",
+        "@ShadowProxy66_107",
+        "@ShadowProxy66_115",
+        "@ShadowProxy66_119",
+        "@ShadowProxy66_116",
+        "@ShadowProxy66_75",
+        "Channel+id:+@ShadowProxy66+🇨🇦_6",
+        "@ShadowProxy66_242",
+        "@ShadowProxy66_126",
+        "@ShadowProxy66_127",
+        "@ShadowProxy66_264",
+        "@ShadowProxy66_82",
+        "Channel+id:+@ShadowProxy66🇬🇧_1",
+        "@ShadowProxy66_81",
+        "@ShadowProxy66_80",
+        "Channel+id:+@ShadowProxy66🇬🇧_2",
+        "@ShadowProxy66_88",
+        "Channel+id:+@ShadowProxy66+🇺🇸",
+        "@ShadowProxy66_291",
+        "Channel id: @ShadowProxy66 🇪🇸",
+        "Channel+id:+@ShadowProxy66+_4",
+        "Channel+id:+@ShadowProxy66+_5",
+        "@ShadowProxy66_105",
+        "Channel+id:+@ShadowProxy66+_6",
+        "Channel+id:+@ShadowProxy66+_7",
+        "Channel+id:+@ShadowProxy66+_8",
+        "Channel+id:+@ShadowProxy66+_9",
+        "Channel+id:+@ShadowProxy66+_10",
+        "Channel+id:+@ShadowProxy66+_11",
+        "Channel+id:+@ShadowProxy66_3",
+        "Channel+id:+@ShadowProxy66+_12",
+        "Channel+id:+@ShadowProxy66+_13",
+        "@ShadowProxy66_262",
+        "Channel+id:+@ShadowProxy66+_14",
+        "Channel+id:+@ShadowProxy66+_15",
+        "Channel+id:+@ShadowProxy66+_16",
+        "Channel+id:+@ShadowProxy66+_17",
+        "Channel+id:+@ShadowProxy66+_18",
+        "Channel+id:+@ShadowProxy66+_19",
+        "Channel+id:+@ShadowProxy66+_20",
+        "Channel+id:+@ShadowProxy66+_21",
+        "Channel+id:+@ShadowProxy66+_22",
+        "Channel+id:+@ShadowProxy66+_23",
+        "@ShadowProxy66_260",
+        "Channel+id:+@ShadowProxy66+_24",
+        "Channel+id:+@ShadowProxy66+_25",
+        "Channel+id:+@ShadowProxy66+_26",
+        "Channel+id:+@ShadowProxy66+_27",
+        "Channel+id:+@ShadowProxy66+_28",
+        "Channel+id:+@ShadowProxy66+_29",
+        "Channel+id:+@ShadowProxy66+_30",
+        "@ShadowProxy66_266",
+        "Channel+id:+@ShadowProxy66+_31",
+        "Channel+id:+@ShadowProxy66+_32",
+        "Channel+id:+@ShadowProxy66+_33",
+        "Channel+id:+@ShadowProxy66+_34",
+        "Channel+id:+@ShadowProxy66+_35",
+        "Channel+id:+@ShadowProxy66+_36",
+        "Channel+id:+@ShadowProxy66+_37",
+        "Channel+id:+@ShadowProxy66+_38",
+        "Channel+id:+@ShadowProxy66+_39",
+        "Channel+id:+@ShadowProxy66+_40",
+        "Channel+id:+@ShadowProxy66+_41",
+        "Channel+id:+@ShadowProxy66+_42",
+        "Channel+id:+@ShadowProxy66+_43",
+        "Channel+id:+@ShadowProxy66_4",
+        "Channel+id:+@ShadowProxy66+_44",
+        "Channel+id:+@ShadowProxy66+_45",
+        "Channel+id:+@ShadowProxy66+_46",
+        "Channel+id:+@ShadowProxy66+_47",
+        "Channel+id:+@ShadowProxy66+_48",
+        "@ShadowProxy66_123",
+        "@ShadowProxy66_122",
+        "@ShadowProxy66_254",
+        "@ShadowProxy66_87",
+        "Channel+id:+@ShadowProxy66+_49",
+        "Channel+id:+@ShadowProxy66+_50",
+        "Channel+id:+@ShadowProxy66_5",
+        "Channel+id:+@ShadowProxy66+_51",
+        "@ShadowProxy66_86",
+        "Channel+id:+@ShadowProxy66+_52",
+        "Channel+id:+@ShadowProxy66+_53",
+        "Channel+id:+@ShadowProxy66+_54",
+        "Channel+id:+@ShadowProxy66+_55",
+        "Channel+id:+@ShadowProxy66+_56",
+        "Channel+id:+@ShadowProxy66+_57",
+        "Channel+id:+@ShadowProxy66+_58",
+        "Channel+id:+@ShadowProxy66+_59",
+        "Channel id: @ShadowProxy66 ",
+        "Channel+id:+@ShadowProxy66+_60",
+        "Channel+id:+@ShadowProxy66+_61",
+        "Channel+id:+@ShadowProxy66+_62",
+        "Channel+id:+@ShadowProxy66+_63",
+        "@ShadowProxy66_251"
+      ]
+    },
+    {
+      "tag": "auto",
+      "type": "urltest",
+      "outbounds": [
+        "@ShadowProxy66_85",
+        "@ShadowProxy66_79",
+        "Channel+id:+@ShadowProxy66+🇮🇷_1",
+        "@ShadowProxy66_84",
+        "@ShadowProxy66_83",
+        "@ShadowProxy66_121",
+        "Channel+id:+@ShadowProxy66🇭🇰",
+        "@ShadowProxy66_89",
+        "@ShadowProxy66_90",
+        "@ShadowProxy66_92",
+        "Channel+id:+@ShadowProxy66🇨🇦_1",
+        "Channel+id:+@ShadowProxy66_1",
+        "Channel+id:+@ShadowProxy66🇺🇸_1",
+        "@ShadowProxy66_91",
+        "Channel+id:+@ShadowProxy66+🇮🇷_2",
+        "Channel+id:+@ShadowProxy66_2",
+        "@ShadowProxy66_124",
+        "@ShadowProxy66_112",
+        "@ShadowProxy66_271",
+        "@ShadowProxy66_278",
+        "Channel+id:+@ShadowProxy66🇨🇦_2",
+        "@ShadowProxy66_125",
+        "Channel+id:+@ShadowProxy66🇺🇸_2",
+        "@ShadowProxy66_283",
+        "@ShadowProxy66_279",
+        "@ShadowProxy66_286",
+        "Channel+id:+@ShadowProxy66+🇬🇧_1",
+        "Channel+id:+@ShadowProxy66+_1",
+        "Channel+id:+@ShadowProxy66+🇨🇦_1",
+        "Channel+id:+@ShadowProxy66+🇨🇦_2",
+        "Channel+id:+@ShadowProxy66+🇬🇧_2",
+        "Channel id: @ShadowProxy66 🇬🇧",
+        "Channel+id:+@ShadowProxy66+🇨🇦_3",
+        "@ShadowProxy66_120",
+        "@ShadowProxy66_288",
+        "@ShadowProxy66_269",
+        "Channel+id:+@ShadowProxy66+_2",
+        "Channel+id:+@ShadowProxy66+🇬🇧_3",
+        "Channel+id:+@ShadowProxy66+🇨🇦_4",
+        "Channel+id:+@ShadowProxy66+🇬🇧_4",
+        "Channel+id:+@ShadowProxy66+🇨🇦_5",
+        "@ShadowProxy66_99",
+        "@ShadowProxy66_74",
+        "@ShadowProxy66_275",
+        "@ShadowProxy66_77",
+        "@ShadowProxy66_259",
+        "@ShadowProxy66_110",
+        "Channel+id:+@ShadowProxy66+_3",
+        "@ShadowProxy66_257",
+        "@ShadowProxy66_107",
+        "@ShadowProxy66_115",
+        "@ShadowProxy66_119",
+        "@ShadowProxy66_116",
+        "@ShadowProxy66_75",
+        "Channel+id:+@ShadowProxy66+🇨🇦_6",
+        "@ShadowProxy66_242",
+        "@ShadowProxy66_126",
+        "@ShadowProxy66_127",
+        "@ShadowProxy66_264",
+        "@ShadowProxy66_82",
+        "Channel+id:+@ShadowProxy66🇬🇧_1",
+        "@ShadowProxy66_81",
+        "@ShadowProxy66_80",
+        "Channel+id:+@ShadowProxy66🇬🇧_2",
+        "@ShadowProxy66_88",
+        "Channel+id:+@ShadowProxy66+🇺🇸",
+        "@ShadowProxy66_291",
+        "Channel id: @ShadowProxy66 🇪🇸",
+        "Channel+id:+@ShadowProxy66+_4",
+        "Channel+id:+@ShadowProxy66+_5",
+        "@ShadowProxy66_105",
+        "Channel+id:+@ShadowProxy66+_6",
+        "Channel+id:+@ShadowProxy66+_7",
+        "Channel+id:+@ShadowProxy66+_8",
+        "Channel+id:+@ShadowProxy66+_9",
+        "Channel+id:+@ShadowProxy66+_10",
+        "Channel+id:+@ShadowProxy66+_11",
+        "Channel+id:+@ShadowProxy66_3",
+        "Channel+id:+@ShadowProxy66+_12",
+        "Channel+id:+@ShadowProxy66+_13",
+        "@ShadowProxy66_262",
+        "Channel+id:+@ShadowProxy66+_14",
+        "Channel+id:+@ShadowProxy66+_15",
+        "Channel+id:+@ShadowProxy66+_16",
+        "Channel+id:+@ShadowProxy66+_17",
+        "Channel+id:+@ShadowProxy66+_18",
+        "Channel+id:+@ShadowProxy66+_19",
+        "Channel+id:+@ShadowProxy66+_20",
+        "Channel+id:+@ShadowProxy66+_21",
+        "Channel+id:+@ShadowProxy66+_22",
+        "Channel+id:+@ShadowProxy66+_23",
+        "@ShadowProxy66_260",
+        "Channel+id:+@ShadowProxy66+_24",
+        "Channel+id:+@ShadowProxy66+_25",
+        "Channel+id:+@ShadowProxy66+_26",
+        "Channel+id:+@ShadowProxy66+_27",
+        "Channel+id:+@ShadowProxy66+_28",
+        "Channel+id:+@ShadowProxy66+_29",
+        "Channel+id:+@ShadowProxy66+_30",
+        "@ShadowProxy66_266",
+        "Channel+id:+@ShadowProxy66+_31",
+        "Channel+id:+@ShadowProxy66+_32",
+        "Channel+id:+@ShadowProxy66+_33",
+        "Channel+id:+@ShadowProxy66+_34",
+        "Channel+id:+@ShadowProxy66+_35",
+        "Channel+id:+@ShadowProxy66+_36",
+        "Channel+id:+@ShadowProxy66+_37",
+        "Channel+id:+@ShadowProxy66+_38",
+        "Channel+id:+@ShadowProxy66+_39",
+        "Channel+id:+@ShadowProxy66+_40",
+        "Channel+id:+@ShadowProxy66+_41",
+        "Channel+id:+@ShadowProxy66+_42",
+        "Channel+id:+@ShadowProxy66+_43",
+        "Channel+id:+@ShadowProxy66_4",
+        "Channel+id:+@ShadowProxy66+_44",
+        "Channel+id:+@ShadowProxy66+_45",
+        "Channel+id:+@ShadowProxy66+_46",
+        "Channel+id:+@ShadowProxy66+_47",
+        "Channel+id:+@ShadowProxy66+_48",
+        "@ShadowProxy66_123",
+        "@ShadowProxy66_122",
+        "@ShadowProxy66_254",
+        "@ShadowProxy66_87",
+        "Channel+id:+@ShadowProxy66+_49",
+        "Channel+id:+@ShadowProxy66+_50",
+        "Channel+id:+@ShadowProxy66_5",
+        "Channel+id:+@ShadowProxy66+_51",
+        "@ShadowProxy66_86",
+        "Channel+id:+@ShadowProxy66+_52",
+        "Channel+id:+@ShadowProxy66+_53",
+        "Channel+id:+@ShadowProxy66+_54",
+        "Channel+id:+@ShadowProxy66+_55",
+        "Channel+id:+@ShadowProxy66+_56",
+        "Channel+id:+@ShadowProxy66+_57",
+        "Channel+id:+@ShadowProxy66+_58",
+        "Channel+id:+@ShadowProxy66+_59",
+        "Channel id: @ShadowProxy66 ",
+        "Channel+id:+@ShadowProxy66+_60",
+        "Channel+id:+@ShadowProxy66+_61",
+        "Channel+id:+@ShadowProxy66+_62",
+        "Channel+id:+@ShadowProxy66+_63",
+        "@ShadowProxy66_251"
+      ],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "1m",
+      "tolerance": 50
+    },
+    {
+      "tag": "🤖 OpenAI",
+      "type": "selector",
+      "outbounds": [
+        "direct",
+        "@ShadowProxy66_85",
+        "@ShadowProxy66_79",
+        "Channel+id:+@ShadowProxy66+🇮🇷_1",
+        "@ShadowProxy66_84",
+        "@ShadowProxy66_83",
+        "@ShadowProxy66_121",
+        "Channel+id:+@ShadowProxy66🇭🇰",
+        "@ShadowProxy66_89",
+        "@ShadowProxy66_90",
+        "@ShadowProxy66_92",
+        "Channel+id:+@ShadowProxy66🇨🇦_1",
+        "Channel+id:+@ShadowProxy66_1",
+        "Channel+id:+@ShadowProxy66🇺🇸_1",
+        "@ShadowProxy66_91",
+        "Channel+id:+@ShadowProxy66+🇮🇷_2",
+        "Channel+id:+@ShadowProxy66_2",
+        "@ShadowProxy66_124",
+        "@ShadowProxy66_112",
+        "@ShadowProxy66_271",
+        "@ShadowProxy66_278",
+        "Channel+id:+@ShadowProxy66🇨🇦_2",
+        "@ShadowProxy66_125",
+        "Channel+id:+@ShadowProxy66🇺🇸_2",
+        "@ShadowProxy66_283",
+        "@ShadowProxy66_279",
+        "@ShadowProxy66_286",
+        "Channel+id:+@ShadowProxy66+🇬🇧_1",
+        "Channel+id:+@ShadowProxy66+_1",
+        "Channel+id:+@ShadowProxy66+🇨🇦_1",
+        "Channel+id:+@ShadowProxy66+🇨🇦_2",
+        "Channel+id:+@ShadowProxy66+🇬🇧_2",
+        "Channel id: @ShadowProxy66 🇬🇧",
+        "Channel+id:+@ShadowProxy66+🇨🇦_3",
+        "@ShadowProxy66_120",
+        "@ShadowProxy66_288",
+        "@ShadowProxy66_269",
+        "Channel+id:+@ShadowProxy66+_2",
+        "Channel+id:+@ShadowProxy66+🇬🇧_3",
+        "Channel+id:+@ShadowProxy66+🇨🇦_4",
+        "Channel+id:+@ShadowProxy66+🇬🇧_4",
+        "Channel+id:+@ShadowProxy66+🇨🇦_5",
+        "@ShadowProxy66_99",
+        "@ShadowProxy66_74",
+        "@ShadowProxy66_275",
+        "@ShadowProxy66_77",
+        "@ShadowProxy66_259",
+        "@ShadowProxy66_110",
+        "Channel+id:+@ShadowProxy66+_3",
+        "@ShadowProxy66_257",
+        "@ShadowProxy66_107",
+        "@ShadowProxy66_115",
+        "@ShadowProxy66_119",
+        "@ShadowProxy66_116",
+        "@ShadowProxy66_75",
+        "Channel+id:+@ShadowProxy66+🇨🇦_6",
+        "@ShadowProxy66_242",
+        "@ShadowProxy66_126",
+        "@ShadowProxy66_127",
+        "@ShadowProxy66_264",
+        "@ShadowProxy66_82",
+        "Channel+id:+@ShadowProxy66🇬🇧_1",
+        "@ShadowProxy66_81",
+        "@ShadowProxy66_80",
+        "Channel+id:+@ShadowProxy66🇬🇧_2",
+        "@ShadowProxy66_88",
+        "Channel+id:+@ShadowProxy66+🇺🇸",
+        "@ShadowProxy66_291",
+        "Channel id: @ShadowProxy66 🇪🇸",
+        "Channel+id:+@ShadowProxy66+_4",
+        "Channel+id:+@ShadowProxy66+_5",
+        "@ShadowProxy66_105",
+        "Channel+id:+@ShadowProxy66+_6",
+        "Channel+id:+@ShadowProxy66+_7",
+        "Channel+id:+@ShadowProxy66+_8",
+        "Channel+id:+@ShadowProxy66+_9",
+        "Channel+id:+@ShadowProxy66+_10",
+        "Channel+id:+@ShadowProxy66+_11",
+        "Channel+id:+@ShadowProxy66_3",
+        "Channel+id:+@ShadowProxy66+_12",
+        "Channel+id:+@ShadowProxy66+_13",
+        "@ShadowProxy66_262",
+        "Channel+id:+@ShadowProxy66+_14",
+        "Channel+id:+@ShadowProxy66+_15",
+        "Channel+id:+@ShadowProxy66+_16",
+        "Channel+id:+@ShadowProxy66+_17",
+        "Channel+id:+@ShadowProxy66+_18",
+        "Channel+id:+@ShadowProxy66+_19",
+        "Channel+id:+@ShadowProxy66+_20",
+        "Channel+id:+@ShadowProxy66+_21",
+        "Channel+id:+@ShadowProxy66+_22",
+        "Channel+id:+@ShadowProxy66+_23",
+        "@ShadowProxy66_260",
+        "Channel+id:+@ShadowProxy66+_24",
+        "Channel+id:+@ShadowProxy66+_25",
+        "Channel+id:+@ShadowProxy66+_26",
+        "Channel+id:+@ShadowProxy66+_27",
+        "Channel+id:+@ShadowProxy66+_28",
+        "Channel+id:+@ShadowProxy66+_29",
+        "Channel+id:+@ShadowProxy66+_30",
+        "@ShadowProxy66_266",
+        "Channel+id:+@ShadowProxy66+_31",
+        "Channel+id:+@ShadowProxy66+_32",
+        "Channel+id:+@ShadowProxy66+_33",
+        "Channel+id:+@ShadowProxy66+_34",
+        "Channel+id:+@ShadowProxy66+_35",
+        "Channel+id:+@ShadowProxy66+_36",
+        "Channel+id:+@ShadowProxy66+_37",
+        "Channel+id:+@ShadowProxy66+_38",
+        "Channel+id:+@ShadowProxy66+_39",
+        "Channel+id:+@ShadowProxy66+_40",
+        "Channel+id:+@ShadowProxy66+_41",
+        "Channel+id:+@ShadowProxy66+_42",
+        "Channel+id:+@ShadowProxy66+_43",
+        "Channel+id:+@ShadowProxy66_4",
+        "Channel+id:+@ShadowProxy66+_44",
+        "Channel+id:+@ShadowProxy66+_45",
+        "Channel+id:+@ShadowProxy66+_46",
+        "Channel+id:+@ShadowProxy66+_47",
+        "Channel+id:+@ShadowProxy66+_48",
+        "@ShadowProxy66_123",
+        "@ShadowProxy66_122",
+        "@ShadowProxy66_254",
+        "@ShadowProxy66_87",
+        "Channel+id:+@ShadowProxy66+_49",
+        "Channel+id:+@ShadowProxy66+_50",
+        "Channel+id:+@ShadowProxy66_5",
+        "Channel+id:+@ShadowProxy66+_51",
+        "@ShadowProxy66_86",
+        "Channel+id:+@ShadowProxy66+_52",
+        "Channel+id:+@ShadowProxy66+_53",
+        "Channel+id:+@ShadowProxy66+_54",
+        "Channel+id:+@ShadowProxy66+_55",
+        "Channel+id:+@ShadowProxy66+_56",
+        "Channel+id:+@ShadowProxy66+_57",
+        "Channel+id:+@ShadowProxy66+_58",
+        "Channel+id:+@ShadowProxy66+_59",
+        "Channel id: @ShadowProxy66 ",
+        "Channel+id:+@ShadowProxy66+_60",
+        "Channel+id:+@ShadowProxy66+_61",
+        "Channel+id:+@ShadowProxy66+_62",
+        "Channel+id:+@ShadowProxy66+_63",
+        "@ShadowProxy66_251"
+      ]
+    },
+    {
+      "tag": "🌌 Google",
+      "type": "selector",
+      "outbounds": [
+        "@ShadowProxy66_85",
+        "@ShadowProxy66_79",
+        "Channel+id:+@ShadowProxy66+🇮🇷_1",
+        "@ShadowProxy66_84",
+        "@ShadowProxy66_83",
+        "@ShadowProxy66_121",
+        "Channel+id:+@ShadowProxy66🇭🇰",
+        "@ShadowProxy66_89",
+        "@ShadowProxy66_90",
+        "@ShadowProxy66_92",
+        "Channel+id:+@ShadowProxy66🇨🇦_1",
+        "Channel+id:+@ShadowProxy66_1",
+        "Channel+id:+@ShadowProxy66🇺🇸_1",
+        "@ShadowProxy66_91",
+        "Channel+id:+@ShadowProxy66+🇮🇷_2",
+        "Channel+id:+@ShadowProxy66_2",
+        "@ShadowProxy66_124",
+        "@ShadowProxy66_112",
+        "@ShadowProxy66_271",
+        "@ShadowProxy66_278",
+        "Channel+id:+@ShadowProxy66🇨🇦_2",
+        "@ShadowProxy66_125",
+        "Channel+id:+@ShadowProxy66🇺🇸_2",
+        "@ShadowProxy66_283",
+        "@ShadowProxy66_279",
+        "@ShadowProxy66_286",
+        "Channel+id:+@ShadowProxy66+🇬🇧_1",
+        "Channel+id:+@ShadowProxy66+_1",
+        "Channel+id:+@ShadowProxy66+🇨🇦_1",
+        "Channel+id:+@ShadowProxy66+🇨🇦_2",
+        "Channel+id:+@ShadowProxy66+🇬🇧_2",
+        "Channel id: @ShadowProxy66 🇬🇧",
+        "Channel+id:+@ShadowProxy66+🇨🇦_3",
+        "@ShadowProxy66_120",
+        "@ShadowProxy66_288",
+        "@ShadowProxy66_269",
+        "Channel+id:+@ShadowProxy66+_2",
+        "Channel+id:+@ShadowProxy66+🇬🇧_3",
+        "Channel+id:+@ShadowProxy66+🇨🇦_4",
+        "Channel+id:+@ShadowProxy66+🇬🇧_4",
+        "Channel+id:+@ShadowProxy66+🇨🇦_5",
+        "@ShadowProxy66_99",
+        "@ShadowProxy66_74",
+        "@ShadowProxy66_275",
+        "@ShadowProxy66_77",
+        "@ShadowProxy66_259",
+        "@ShadowProxy66_110",
+        "Channel+id:+@ShadowProxy66+_3",
+        "@ShadowProxy66_257",
+        "@ShadowProxy66_107",
+        "@ShadowProxy66_115",
+        "@ShadowProxy66_119",
+        "@ShadowProxy66_116",
+        "@ShadowProxy66_75",
+        "Channel+id:+@ShadowProxy66+🇨🇦_6",
+        "@ShadowProxy66_242",
+        "@ShadowProxy66_126",
+        "@ShadowProxy66_127",
+        "@ShadowProxy66_264",
+        "@ShadowProxy66_82",
+        "Channel+id:+@ShadowProxy66🇬🇧_1",
+        "@ShadowProxy66_81",
+        "@ShadowProxy66_80",
+        "Channel+id:+@ShadowProxy66🇬🇧_2",
+        "@ShadowProxy66_88",
+        "Channel+id:+@ShadowProxy66+🇺🇸",
+        "@ShadowProxy66_291",
+        "Channel id: @ShadowProxy66 🇪🇸",
+        "Channel+id:+@ShadowProxy66+_4",
+        "Channel+id:+@ShadowProxy66+_5",
+        "@ShadowProxy66_105",
+        "Channel+id:+@ShadowProxy66+_6",
+        "Channel+id:+@ShadowProxy66+_7",
+        "Channel+id:+@ShadowProxy66+_8",
+        "Channel+id:+@ShadowProxy66+_9",
+        "Channel+id:+@ShadowProxy66+_10",
+        "Channel+id:+@ShadowProxy66+_11",
+        "Channel+id:+@ShadowProxy66_3",
+        "Channel+id:+@ShadowProxy66+_12",
+        "Channel+id:+@ShadowProxy66+_13",
+        "@ShadowProxy66_262",
+        "Channel+id:+@ShadowProxy66+_14",
+        "Channel+id:+@ShadowProxy66+_15",
+        "Channel+id:+@ShadowProxy66+_16",
+        "Channel+id:+@ShadowProxy66+_17",
+        "Channel+id:+@ShadowProxy66+_18",
+        "Channel+id:+@ShadowProxy66+_19",
+        "Channel+id:+@ShadowProxy66+_20",
+        "Channel+id:+@ShadowProxy66+_21",
+        "Channel+id:+@ShadowProxy66+_22",
+        "Channel+id:+@ShadowProxy66+_23",
+        "@ShadowProxy66_260",
+        "Channel+id:+@ShadowProxy66+_24",
+        "Channel+id:+@ShadowProxy66+_25",
+        "Channel+id:+@ShadowProxy66+_26",
+        "Channel+id:+@ShadowProxy66+_27",
+        "Channel+id:+@ShadowProxy66+_28",
+        "Channel+id:+@ShadowProxy66+_29",
+        "Channel+id:+@ShadowProxy66+_30",
+        "@ShadowProxy66_266",
+        "Channel+id:+@ShadowProxy66+_31",
+        "Channel+id:+@ShadowProxy66+_32",
+        "Channel+id:+@ShadowProxy66+_33",
+        "Channel+id:+@ShadowProxy66+_34",
+        "Channel+id:+@ShadowProxy66+_35",
+        "Channel+id:+@ShadowProxy66+_36",
+        "Channel+id:+@ShadowProxy66+_37",
+        "Channel+id:+@ShadowProxy66+_38",
+        "Channel+id:+@ShadowProxy66+_39",
+        "Channel+id:+@ShadowProxy66+_40",
+        "Channel+id:+@ShadowProxy66+_41",
+        "Channel+id:+@ShadowProxy66+_42",
+        "Channel+id:+@ShadowProxy66+_43",
+        "Channel+id:+@ShadowProxy66_4",
+        "Channel+id:+@ShadowProxy66+_44",
+        "Channel+id:+@ShadowProxy66+_45",
+        "Channel+id:+@ShadowProxy66+_46",
+        "Channel+id:+@ShadowProxy66+_47",
+        "Channel+id:+@ShadowProxy66+_48",
+        "@ShadowProxy66_123",
+        "@ShadowProxy66_122",
+        "@ShadowProxy66_254",
+        "@ShadowProxy66_87",
+        "Channel+id:+@ShadowProxy66+_49",
+        "Channel+id:+@ShadowProxy66+_50",
+        "Channel+id:+@ShadowProxy66_5",
+        "Channel+id:+@ShadowProxy66+_51",
+        "@ShadowProxy66_86",
+        "Channel+id:+@ShadowProxy66+_52",
+        "Channel+id:+@ShadowProxy66+_53",
+        "Channel+id:+@ShadowProxy66+_54",
+        "Channel+id:+@ShadowProxy66+_55",
+        "Channel+id:+@ShadowProxy66+_56",
+        "Channel+id:+@ShadowProxy66+_57",
+        "Channel+id:+@ShadowProxy66+_58",
+        "Channel+id:+@ShadowProxy66+_59",
+        "Channel id: @ShadowProxy66 ",
+        "Channel+id:+@ShadowProxy66+_60",
+        "Channel+id:+@ShadowProxy66+_61",
+        "Channel+id:+@ShadowProxy66+_62",
+        "Channel+id:+@ShadowProxy66+_63",
+        "@ShadowProxy66_251"
+      ]
+    },
+    {
+      "tag": "📟 Telegram",
+      "type": "selector",
+      "outbounds": [
+        "@ShadowProxy66_85",
+        "@ShadowProxy66_79",
+        "Channel+id:+@ShadowProxy66+🇮🇷_1",
+        "@ShadowProxy66_84",
+        "@ShadowProxy66_83",
+        "@ShadowProxy66_121",
+        "Channel+id:+@ShadowProxy66🇭🇰",
+        "@ShadowProxy66_89",
+        "@ShadowProxy66_90",
+        "@ShadowProxy66_92",
+        "Channel+id:+@ShadowProxy66🇨🇦_1",
+        "Channel+id:+@ShadowProxy66_1",
+        "Channel+id:+@ShadowProxy66🇺🇸_1",
+        "@ShadowProxy66_91",
+        "Channel+id:+@ShadowProxy66+🇮🇷_2",
+        "Channel+id:+@ShadowProxy66_2",
+        "@ShadowProxy66_124",
+        "@ShadowProxy66_112",
+        "@ShadowProxy66_271",
+        "@ShadowProxy66_278",
+        "Channel+id:+@ShadowProxy66🇨🇦_2",
+        "@ShadowProxy66_125",
+        "Channel+id:+@ShadowProxy66🇺🇸_2",
+        "@ShadowProxy66_283",
+        "@ShadowProxy66_279",
+        "@ShadowProxy66_286",
+        "Channel+id:+@ShadowProxy66+🇬🇧_1",
+        "Channel+id:+@ShadowProxy66+_1",
+        "Channel+id:+@ShadowProxy66+🇨🇦_1",
+        "Channel+id:+@ShadowProxy66+🇨🇦_2",
+        "Channel+id:+@ShadowProxy66+🇬🇧_2",
+        "Channel id: @ShadowProxy66 🇬🇧",
+        "Channel+id:+@ShadowProxy66+🇨🇦_3",
+        "@ShadowProxy66_120",
+        "@ShadowProxy66_288",
+        "@ShadowProxy66_269",
+        "Channel+id:+@ShadowProxy66+_2",
+        "Channel+id:+@ShadowProxy66+🇬🇧_3",
+        "Channel+id:+@ShadowProxy66+🇨🇦_4",
+        "Channel+id:+@ShadowProxy66+🇬🇧_4",
+        "Channel+id:+@ShadowProxy66+🇨🇦_5",
+        "@ShadowProxy66_99",
+        "@ShadowProxy66_74",
+        "@ShadowProxy66_275",
+        "@ShadowProxy66_77",
+        "@ShadowProxy66_259",
+        "@ShadowProxy66_110",
+        "Channel+id:+@ShadowProxy66+_3",
+        "@ShadowProxy66_257",
+        "@ShadowProxy66_107",
+        "@ShadowProxy66_115",
+        "@ShadowProxy66_119",
+        "@ShadowProxy66_116",
+        "@ShadowProxy66_75",
+        "Channel+id:+@ShadowProxy66+🇨🇦_6",
+        "@ShadowProxy66_242",
+        "@ShadowProxy66_126",
+        "@ShadowProxy66_127",
+        "@ShadowProxy66_264",
+        "@ShadowProxy66_82",
+        "Channel+id:+@ShadowProxy66🇬🇧_1",
+        "@ShadowProxy66_81",
+        "@ShadowProxy66_80",
+        "Channel+id:+@ShadowProxy66🇬🇧_2",
+        "@ShadowProxy66_88",
+        "Channel+id:+@ShadowProxy66+🇺🇸",
+        "@ShadowProxy66_291",
+        "Channel id: @ShadowProxy66 🇪🇸",
+        "Channel+id:+@ShadowProxy66+_4",
+        "Channel+id:+@ShadowProxy66+_5",
+        "@ShadowProxy66_105",
+        "Channel+id:+@ShadowProxy66+_6",
+        "Channel+id:+@ShadowProxy66+_7",
+        "Channel+id:+@ShadowProxy66+_8",
+        "Channel+id:+@ShadowProxy66+_9",
+        "Channel+id:+@ShadowProxy66+_10",
+        "Channel+id:+@ShadowProxy66+_11",
+        "Channel+id:+@ShadowProxy66_3",
+        "Channel+id:+@ShadowProxy66+_12",
+        "Channel+id:+@ShadowProxy66+_13",
+        "@ShadowProxy66_262",
+        "Channel+id:+@ShadowProxy66+_14",
+        "Channel+id:+@ShadowProxy66+_15",
+        "Channel+id:+@ShadowProxy66+_16",
+        "Channel+id:+@ShadowProxy66+_17",
+        "Channel+id:+@ShadowProxy66+_18",
+        "Channel+id:+@ShadowProxy66+_19",
+        "Channel+id:+@ShadowProxy66+_20",
+        "Channel+id:+@ShadowProxy66+_21",
+        "Channel+id:+@ShadowProxy66+_22",
+        "Channel+id:+@ShadowProxy66+_23",
+        "@ShadowProxy66_260",
+        "Channel+id:+@ShadowProxy66+_24",
+        "Channel+id:+@ShadowProxy66+_25",
+        "Channel+id:+@ShadowProxy66+_26",
+        "Channel+id:+@ShadowProxy66+_27",
+        "Channel+id:+@ShadowProxy66+_28",
+        "Channel+id:+@ShadowProxy66+_29",
+        "Channel+id:+@ShadowProxy66+_30",
+        "@ShadowProxy66_266",
+        "Channel+id:+@ShadowProxy66+_31",
+        "Channel+id:+@ShadowProxy66+_32",
+        "Channel+id:+@ShadowProxy66+_33",
+        "Channel+id:+@ShadowProxy66+_34",
+        "Channel+id:+@ShadowProxy66+_35",
+        "Channel+id:+@ShadowProxy66+_36",
+        "Channel+id:+@ShadowProxy66+_37",
+        "Channel+id:+@ShadowProxy66+_38",
+        "Channel+id:+@ShadowProxy66+_39",
+        "Channel+id:+@ShadowProxy66+_40",
+        "Channel+id:+@ShadowProxy66+_41",
+        "Channel+id:+@ShadowProxy66+_42",
+        "Channel+id:+@ShadowProxy66+_43",
+        "Channel+id:+@ShadowProxy66_4",
+        "Channel+id:+@ShadowProxy66+_44",
+        "Channel+id:+@ShadowProxy66+_45",
+        "Channel+id:+@ShadowProxy66+_46",
+        "Channel+id:+@ShadowProxy66+_47",
+        "Channel+id:+@ShadowProxy66+_48",
+        "@ShadowProxy66_123",
+        "@ShadowProxy66_122",
+        "@ShadowProxy66_254",
+        "@ShadowProxy66_87",
+        "Channel+id:+@ShadowProxy66+_49",
+        "Channel+id:+@ShadowProxy66+_50",
+        "Channel+id:+@ShadowProxy66_5",
+        "Channel+id:+@ShadowProxy66+_51",
+        "@ShadowProxy66_86",
+        "Channel+id:+@ShadowProxy66+_52",
+        "Channel+id:+@ShadowProxy66+_53",
+        "Channel+id:+@ShadowProxy66+_54",
+        "Channel+id:+@ShadowProxy66+_55",
+        "Channel+id:+@ShadowProxy66+_56",
+        "Channel+id:+@ShadowProxy66+_57",
+        "Channel+id:+@ShadowProxy66+_58",
+        "Channel+id:+@ShadowProxy66+_59",
+        "Channel id: @ShadowProxy66 ",
+        "Channel+id:+@ShadowProxy66+_60",
+        "Channel+id:+@ShadowProxy66+_61",
+        "Channel+id:+@ShadowProxy66+_62",
+        "Channel+id:+@ShadowProxy66+_63",
+        "@ShadowProxy66_251"
+      ]
+    },
+    {
+      "tag": "🐦 Twitter",
+      "type": "selector",
+      "outbounds": [
+        "@ShadowProxy66_85",
+        "@ShadowProxy66_79",
+        "Channel+id:+@ShadowProxy66+🇮🇷_1",
+        "@ShadowProxy66_84",
+        "@ShadowProxy66_83",
+        "@ShadowProxy66_121",
+        "Channel+id:+@ShadowProxy66🇭🇰",
+        "@ShadowProxy66_89",
+        "@ShadowProxy66_90",
+        "@ShadowProxy66_92",
+        "Channel+id:+@ShadowProxy66🇨🇦_1",
+        "Channel+id:+@ShadowProxy66_1",
+        "Channel+id:+@ShadowProxy66🇺🇸_1",
+        "@ShadowProxy66_91",
+        "Channel+id:+@ShadowProxy66+🇮🇷_2",
+        "Channel+id:+@ShadowProxy66_2",
+        "@ShadowProxy66_124",
+        "@ShadowProxy66_112",
+        "@ShadowProxy66_271",
+        "@ShadowProxy66_278",
+        "Channel+id:+@ShadowProxy66🇨🇦_2",
+        "@ShadowProxy66_125",
+        "Channel+id:+@ShadowProxy66🇺🇸_2",
+        "@ShadowProxy66_283",
+        "@ShadowProxy66_279",
+        "@ShadowProxy66_286",
+        "Channel+id:+@ShadowProxy66+🇬🇧_1",
+        "Channel+id:+@ShadowProxy66+_1",
+        "Channel+id:+@ShadowProxy66+🇨🇦_1",
+        "Channel+id:+@ShadowProxy66+🇨🇦_2",
+        "Channel+id:+@ShadowProxy66+🇬🇧_2",
+        "Channel id: @ShadowProxy66 🇬🇧",
+        "Channel+id:+@ShadowProxy66+🇨🇦_3",
+        "@ShadowProxy66_120",
+        "@ShadowProxy66_288",
+        "@ShadowProxy66_269",
+        "Channel+id:+@ShadowProxy66+_2",
+        "Channel+id:+@ShadowProxy66+🇬🇧_3",
+        "Channel+id:+@ShadowProxy66+🇨🇦_4",
+        "Channel+id:+@ShadowProxy66+🇬🇧_4",
+        "Channel+id:+@ShadowProxy66+🇨🇦_5",
+        "@ShadowProxy66_99",
+        "@ShadowProxy66_74",
+        "@ShadowProxy66_275",
+        "@ShadowProxy66_77",
+        "@ShadowProxy66_259",
+        "@ShadowProxy66_110",
+        "Channel+id:+@ShadowProxy66+_3",
+        "@ShadowProxy66_257",
+        "@ShadowProxy66_107",
+        "@ShadowProxy66_115",
+        "@ShadowProxy66_119",
+        "@ShadowProxy66_116",
+        "@ShadowProxy66_75",
+        "Channel+id:+@ShadowProxy66+🇨🇦_6",
+        "@ShadowProxy66_242",
+        "@ShadowProxy66_126",
+        "@ShadowProxy66_127",
+        "@ShadowProxy66_264",
+        "@ShadowProxy66_82",
+        "Channel+id:+@ShadowProxy66🇬🇧_1",
+        "@ShadowProxy66_81",
+        "@ShadowProxy66_80",
+        "Channel+id:+@ShadowProxy66🇬🇧_2",
+        "@ShadowProxy66_88",
+        "Channel+id:+@ShadowProxy66+🇺🇸",
+        "@ShadowProxy66_291",
+        "Channel id: @ShadowProxy66 🇪🇸",
+        "Channel+id:+@ShadowProxy66+_4",
+        "Channel+id:+@ShadowProxy66+_5",
+        "@ShadowProxy66_105",
+        "Channel+id:+@ShadowProxy66+_6",
+        "Channel+id:+@ShadowProxy66+_7",
+        "Channel+id:+@ShadowProxy66+_8",
+        "Channel+id:+@ShadowProxy66+_9",
+        "Channel+id:+@ShadowProxy66+_10",
+        "Channel+id:+@ShadowProxy66+_11",
+        "Channel+id:+@ShadowProxy66_3",
+        "Channel+id:+@ShadowProxy66+_12",
+        "Channel+id:+@ShadowProxy66+_13",
+        "@ShadowProxy66_262",
+        "Channel+id:+@ShadowProxy66+_14",
+        "Channel+id:+@ShadowProxy66+_15",
+        "Channel+id:+@ShadowProxy66+_16",
+        "Channel+id:+@ShadowProxy66+_17",
+        "Channel+id:+@ShadowProxy66+_18",
+        "Channel+id:+@ShadowProxy66+_19",
+        "Channel+id:+@ShadowProxy66+_20",
+        "Channel+id:+@ShadowProxy66+_21",
+        "Channel+id:+@ShadowProxy66+_22",
+        "Channel+id:+@ShadowProxy66+_23",
+        "@ShadowProxy66_260",
+        "Channel+id:+@ShadowProxy66+_24",
+        "Channel+id:+@ShadowProxy66+_25",
+        "Channel+id:+@ShadowProxy66+_26",
+        "Channel+id:+@ShadowProxy66+_27",
+        "Channel+id:+@ShadowProxy66+_28",
+        "Channel+id:+@ShadowProxy66+_29",
+        "Channel+id:+@ShadowProxy66+_30",
+        "@ShadowProxy66_266",
+        "Channel+id:+@ShadowProxy66+_31",
+        "Channel+id:+@ShadowProxy66+_32",
+        "Channel+id:+@ShadowProxy66+_33",
+        "Channel+id:+@ShadowProxy66+_34",
+        "Channel+id:+@ShadowProxy66+_35",
+        "Channel+id:+@ShadowProxy66+_36",
+        "Channel+id:+@ShadowProxy66+_37",
+        "Channel+id:+@ShadowProxy66+_38",
+        "Channel+id:+@ShadowProxy66+_39",
+        "Channel+id:+@ShadowProxy66+_40",
+        "Channel+id:+@ShadowProxy66+_41",
+        "Channel+id:+@ShadowProxy66+_42",
+        "Channel+id:+@ShadowProxy66+_43",
+        "Channel+id:+@ShadowProxy66_4",
+        "Channel+id:+@ShadowProxy66+_44",
+        "Channel+id:+@ShadowProxy66+_45",
+        "Channel+id:+@ShadowProxy66+_46",
+        "Channel+id:+@ShadowProxy66+_47",
+        "Channel+id:+@ShadowProxy66+_48",
+        "@ShadowProxy66_123",
+        "@ShadowProxy66_122",
+        "@ShadowProxy66_254",
+        "@ShadowProxy66_87",
+        "Channel+id:+@ShadowProxy66+_49",
+        "Channel+id:+@ShadowProxy66+_50",
+        "Channel+id:+@ShadowProxy66_5",
+        "Channel+id:+@ShadowProxy66+_51",
+        "@ShadowProxy66_86",
+        "Channel+id:+@ShadowProxy66+_52",
+        "Channel+id:+@ShadowProxy66+_53",
+        "Channel+id:+@ShadowProxy66+_54",
+        "Channel+id:+@ShadowProxy66+_55",
+        "Channel+id:+@ShadowProxy66+_56",
+        "Channel+id:+@ShadowProxy66+_57",
+        "Channel+id:+@ShadowProxy66+_58",
+        "Channel+id:+@ShadowProxy66+_59",
+        "Channel id: @ShadowProxy66 ",
+        "Channel+id:+@ShadowProxy66+_60",
+        "Channel+id:+@ShadowProxy66+_61",
+        "Channel+id:+@ShadowProxy66+_62",
+        "Channel+id:+@ShadowProxy66+_63",
+        "@ShadowProxy66_251"
+      ]
+    },
+    {
+      "tag": "👤 Facebook",
+      "type": "selector",
+      "outbounds": [
+        "@ShadowProxy66_85",
+        "@ShadowProxy66_79",
+        "Channel+id:+@ShadowProxy66+🇮🇷_1",
+        "@ShadowProxy66_84",
+        "@ShadowProxy66_83",
+        "@ShadowProxy66_121",
+        "Channel+id:+@ShadowProxy66🇭🇰",
+        "@ShadowProxy66_89",
+        "@ShadowProxy66_90",
+        "@ShadowProxy66_92",
+        "Channel+id:+@ShadowProxy66🇨🇦_1",
+        "Channel+id:+@ShadowProxy66_1",
+        "Channel+id:+@ShadowProxy66🇺🇸_1",
+        "@ShadowProxy66_91",
+        "Channel+id:+@ShadowProxy66+🇮🇷_2",
+        "Channel+id:+@ShadowProxy66_2",
+        "@ShadowProxy66_124",
+        "@ShadowProxy66_112",
+        "@ShadowProxy66_271",
+        "@ShadowProxy66_278",
+        "Channel+id:+@ShadowProxy66🇨🇦_2",
+        "@ShadowProxy66_125",
+        "Channel+id:+@ShadowProxy66🇺🇸_2",
+        "@ShadowProxy66_283",
+        "@ShadowProxy66_279",
+        "@ShadowProxy66_286",
+        "Channel+id:+@ShadowProxy66+🇬🇧_1",
+        "Channel+id:+@ShadowProxy66+_1",
+        "Channel+id:+@ShadowProxy66+🇨🇦_1",
+        "Channel+id:+@ShadowProxy66+🇨🇦_2",
+        "Channel+id:+@ShadowProxy66+🇬🇧_2",
+        "Channel id: @ShadowProxy66 🇬🇧",
+        "Channel+id:+@ShadowProxy66+🇨🇦_3",
+        "@ShadowProxy66_120",
+        "@ShadowProxy66_288",
+        "@ShadowProxy66_269",
+        "Channel+id:+@ShadowProxy66+_2",
+        "Channel+id:+@ShadowProxy66+🇬🇧_3",
+        "Channel+id:+@ShadowProxy66+🇨🇦_4",
+        "Channel+id:+@ShadowProxy66+🇬🇧_4",
+        "Channel+id:+@ShadowProxy66+🇨🇦_5",
+        "@ShadowProxy66_99",
+        "@ShadowProxy66_74",
+        "@ShadowProxy66_275",
+        "@ShadowProxy66_77",
+        "@ShadowProxy66_259",
+        "@ShadowProxy66_110",
+        "Channel+id:+@ShadowProxy66+_3",
+        "@ShadowProxy66_257",
+        "@ShadowProxy66_107",
+        "@ShadowProxy66_115",
+        "@ShadowProxy66_119",
+        "@ShadowProxy66_116",
+        "@ShadowProxy66_75",
+        "Channel+id:+@ShadowProxy66+🇨🇦_6",
+        "@ShadowProxy66_242",
+        "@ShadowProxy66_126",
+        "@ShadowProxy66_127",
+        "@ShadowProxy66_264",
+        "@ShadowProxy66_82",
+        "Channel+id:+@ShadowProxy66🇬🇧_1",
+        "@ShadowProxy66_81",
+        "@ShadowProxy66_80",
+        "Channel+id:+@ShadowProxy66🇬🇧_2",
+        "@ShadowProxy66_88",
+        "Channel+id:+@ShadowProxy66+🇺🇸",
+        "@ShadowProxy66_291",
+        "Channel id: @ShadowProxy66 🇪🇸",
+        "Channel+id:+@ShadowProxy66+_4",
+        "Channel+id:+@ShadowProxy66+_5",
+        "@ShadowProxy66_105",
+        "Channel+id:+@ShadowProxy66+_6",
+        "Channel+id:+@ShadowProxy66+_7",
+        "Channel+id:+@ShadowProxy66+_8",
+        "Channel+id:+@ShadowProxy66+_9",
+        "Channel+id:+@ShadowProxy66+_10",
+        "Channel+id:+@ShadowProxy66+_11",
+        "Channel+id:+@ShadowProxy66_3",
+        "Channel+id:+@ShadowProxy66+_12",
+        "Channel+id:+@ShadowProxy66+_13",
+        "@ShadowProxy66_262",
+        "Channel+id:+@ShadowProxy66+_14",
+        "Channel+id:+@ShadowProxy66+_15",
+        "Channel+id:+@ShadowProxy66+_16",
+        "Channel+id:+@ShadowProxy66+_17",
+        "Channel+id:+@ShadowProxy66+_18",
+        "Channel+id:+@ShadowProxy66+_19",
+        "Channel+id:+@ShadowProxy66+_20",
+        "Channel+id:+@ShadowProxy66+_21",
+        "Channel+id:+@ShadowProxy66+_22",
+        "Channel+id:+@ShadowProxy66+_23",
+        "@ShadowProxy66_260",
+        "Channel+id:+@ShadowProxy66+_24",
+        "Channel+id:+@ShadowProxy66+_25",
+        "Channel+id:+@ShadowProxy66+_26",
+        "Channel+id:+@ShadowProxy66+_27",
+        "Channel+id:+@ShadowProxy66+_28",
+        "Channel+id:+@ShadowProxy66+_29",
+        "Channel+id:+@ShadowProxy66+_30",
+        "@ShadowProxy66_266",
+        "Channel+id:+@ShadowProxy66+_31",
+        "Channel+id:+@ShadowProxy66+_32",
+        "Channel+id:+@ShadowProxy66+_33",
+        "Channel+id:+@ShadowProxy66+_34",
+        "Channel+id:+@ShadowProxy66+_35",
+        "Channel+id:+@ShadowProxy66+_36",
+        "Channel+id:+@ShadowProxy66+_37",
+        "Channel+id:+@ShadowProxy66+_38",
+        "Channel+id:+@ShadowProxy66+_39",
+        "Channel+id:+@ShadowProxy66+_40",
+        "Channel+id:+@ShadowProxy66+_41",
+        "Channel+id:+@ShadowProxy66+_42",
+        "Channel+id:+@ShadowProxy66+_43",
+        "Channel+id:+@ShadowProxy66_4",
+        "Channel+id:+@ShadowProxy66+_44",
+        "Channel+id:+@ShadowProxy66+_45",
+        "Channel+id:+@ShadowProxy66+_46",
+        "Channel+id:+@ShadowProxy66+_47",
+        "Channel+id:+@ShadowProxy66+_48",
+        "@ShadowProxy66_123",
+        "@ShadowProxy66_122",
+        "@ShadowProxy66_254",
+        "@ShadowProxy66_87",
+        "Channel+id:+@ShadowProxy66+_49",
+        "Channel+id:+@ShadowProxy66+_50",
+        "Channel+id:+@ShadowProxy66_5",
+        "Channel+id:+@ShadowProxy66+_51",
+        "@ShadowProxy66_86",
+        "Channel+id:+@ShadowProxy66+_52",
+        "Channel+id:+@ShadowProxy66+_53",
+        "Channel+id:+@ShadowProxy66+_54",
+        "Channel+id:+@ShadowProxy66+_55",
+        "Channel+id:+@ShadowProxy66+_56",
+        "Channel+id:+@ShadowProxy66+_57",
+        "Channel+id:+@ShadowProxy66+_58",
+        "Channel+id:+@ShadowProxy66+_59",
+        "Channel id: @ShadowProxy66 ",
+        "Channel+id:+@ShadowProxy66+_60",
+        "Channel+id:+@ShadowProxy66+_61",
+        "Channel+id:+@ShadowProxy66+_62",
+        "Channel+id:+@ShadowProxy66+_63",
+        "@ShadowProxy66_251"
+      ]
+    },
+    {
+      "tag": "🛍️ Amazon",
+      "type": "selector",
+      "outbounds": [
+        "direct",
+        "@ShadowProxy66_85",
+        "@ShadowProxy66_79",
+        "Channel+id:+@ShadowProxy66+🇮🇷_1",
+        "@ShadowProxy66_84",
+        "@ShadowProxy66_83",
+        "@ShadowProxy66_121",
+        "Channel+id:+@ShadowProxy66🇭🇰",
+        "@ShadowProxy66_89",
+        "@ShadowProxy66_90",
+        "@ShadowProxy66_92",
+        "Channel+id:+@ShadowProxy66🇨🇦_1",
+        "Channel+id:+@ShadowProxy66_1",
+        "Channel+id:+@ShadowProxy66🇺🇸_1",
+        "@ShadowProxy66_91",
+        "Channel+id:+@ShadowProxy66+🇮🇷_2",
+        "Channel+id:+@ShadowProxy66_2",
+        "@ShadowProxy66_124",
+        "@ShadowProxy66_112",
+        "@ShadowProxy66_271",
+        "@ShadowProxy66_278",
+        "Channel+id:+@ShadowProxy66🇨🇦_2",
+        "@ShadowProxy66_125",
+        "Channel+id:+@ShadowProxy66🇺🇸_2",
+        "@ShadowProxy66_283",
+        "@ShadowProxy66_279",
+        "@ShadowProxy66_286",
+        "Channel+id:+@ShadowProxy66+🇬🇧_1",
+        "Channel+id:+@ShadowProxy66+_1",
+        "Channel+id:+@ShadowProxy66+🇨🇦_1",
+        "Channel+id:+@ShadowProxy66+🇨🇦_2",
+        "Channel+id:+@ShadowProxy66+🇬🇧_2",
+        "Channel id: @ShadowProxy66 🇬🇧",
+        "Channel+id:+@ShadowProxy66+🇨🇦_3",
+        "@ShadowProxy66_120",
+        "@ShadowProxy66_288",
+        "@ShadowProxy66_269",
+        "Channel+id:+@ShadowProxy66+_2",
+        "Channel+id:+@ShadowProxy66+🇬🇧_3",
+        "Channel+id:+@ShadowProxy66+🇨🇦_4",
+        "Channel+id:+@ShadowProxy66+🇬🇧_4",
+        "Channel+id:+@ShadowProxy66+🇨🇦_5",
+        "@ShadowProxy66_99",
+        "@ShadowProxy66_74",
+        "@ShadowProxy66_275",
+        "@ShadowProxy66_77",
+        "@ShadowProxy66_259",
+        "@ShadowProxy66_110",
+        "Channel+id:+@ShadowProxy66+_3",
+        "@ShadowProxy66_257",
+        "@ShadowProxy66_107",
+        "@ShadowProxy66_115",
+        "@ShadowProxy66_119",
+        "@ShadowProxy66_116",
+        "@ShadowProxy66_75",
+        "Channel+id:+@ShadowProxy66+🇨🇦_6",
+        "@ShadowProxy66_242",
+        "@ShadowProxy66_126",
+        "@ShadowProxy66_127",
+        "@ShadowProxy66_264",
+        "@ShadowProxy66_82",
+        "Channel+id:+@ShadowProxy66🇬🇧_1",
+        "@ShadowProxy66_81",
+        "@ShadowProxy66_80",
+        "Channel+id:+@ShadowProxy66🇬🇧_2",
+        "@ShadowProxy66_88",
+        "Channel+id:+@ShadowProxy66+🇺🇸",
+        "@ShadowProxy66_291",
+        "Channel id: @ShadowProxy66 🇪🇸",
+        "Channel+id:+@ShadowProxy66+_4",
+        "Channel+id:+@ShadowProxy66+_5",
+        "@ShadowProxy66_105",
+        "Channel+id:+@ShadowProxy66+_6",
+        "Channel+id:+@ShadowProxy66+_7",
+        "Channel+id:+@ShadowProxy66+_8",
+        "Channel+id:+@ShadowProxy66+_9",
+        "Channel+id:+@ShadowProxy66+_10",
+        "Channel+id:+@ShadowProxy66+_11",
+        "Channel+id:+@ShadowProxy66_3",
+        "Channel+id:+@ShadowProxy66+_12",
+        "Channel+id:+@ShadowProxy66+_13",
+        "@ShadowProxy66_262",
+        "Channel+id:+@ShadowProxy66+_14",
+        "Channel+id:+@ShadowProxy66+_15",
+        "Channel+id:+@ShadowProxy66+_16",
+        "Channel+id:+@ShadowProxy66+_17",
+        "Channel+id:+@ShadowProxy66+_18",
+        "Channel+id:+@ShadowProxy66+_19",
+        "Channel+id:+@ShadowProxy66+_20",
+        "Channel+id:+@ShadowProxy66+_21",
+        "Channel+id:+@ShadowProxy66+_22",
+        "Channel+id:+@ShadowProxy66+_23",
+        "@ShadowProxy66_260",
+        "Channel+id:+@ShadowProxy66+_24",
+        "Channel+id:+@ShadowProxy66+_25",
+        "Channel+id:+@ShadowProxy66+_26",
+        "Channel+id:+@ShadowProxy66+_27",
+        "Channel+id:+@ShadowProxy66+_28",
+        "Channel+id:+@ShadowProxy66+_29",
+        "Channel+id:+@ShadowProxy66+_30",
+        "@ShadowProxy66_266",
+        "Channel+id:+@ShadowProxy66+_31",
+        "Channel+id:+@ShadowProxy66+_32",
+        "Channel+id:+@ShadowProxy66+_33",
+        "Channel+id:+@ShadowProxy66+_34",
+        "Channel+id:+@ShadowProxy66+_35",
+        "Channel+id:+@ShadowProxy66+_36",
+        "Channel+id:+@ShadowProxy66+_37",
+        "Channel+id:+@ShadowProxy66+_38",
+        "Channel+id:+@ShadowProxy66+_39",
+        "Channel+id:+@ShadowProxy66+_40",
+        "Channel+id:+@ShadowProxy66+_41",
+        "Channel+id:+@ShadowProxy66+_42",
+        "Channel+id:+@ShadowProxy66+_43",
+        "Channel+id:+@ShadowProxy66_4",
+        "Channel+id:+@ShadowProxy66+_44",
+        "Channel+id:+@ShadowProxy66+_45",
+        "Channel+id:+@ShadowProxy66+_46",
+        "Channel+id:+@ShadowProxy66+_47",
+        "Channel+id:+@ShadowProxy66+_48",
+        "@ShadowProxy66_123",
+        "@ShadowProxy66_122",
+        "@ShadowProxy66_254",
+        "@ShadowProxy66_87",
+        "Channel+id:+@ShadowProxy66+_49",
+        "Channel+id:+@ShadowProxy66+_50",
+        "Channel+id:+@ShadowProxy66_5",
+        "Channel+id:+@ShadowProxy66+_51",
+        "@ShadowProxy66_86",
+        "Channel+id:+@ShadowProxy66+_52",
+        "Channel+id:+@ShadowProxy66+_53",
+        "Channel+id:+@ShadowProxy66+_54",
+        "Channel+id:+@ShadowProxy66+_55",
+        "Channel+id:+@ShadowProxy66+_56",
+        "Channel+id:+@ShadowProxy66+_57",
+        "Channel+id:+@ShadowProxy66+_58",
+        "Channel+id:+@ShadowProxy66+_59",
+        "Channel id: @ShadowProxy66 ",
+        "Channel+id:+@ShadowProxy66+_60",
+        "Channel+id:+@ShadowProxy66+_61",
+        "Channel+id:+@ShadowProxy66+_62",
+        "Channel+id:+@ShadowProxy66+_63",
+        "@ShadowProxy66_251"
+      ]
+    },
+    {
+      "tag": "🍎 Apple",
+      "type": "selector",
+      "outbounds": [
+        "direct",
+        "@ShadowProxy66_85",
+        "@ShadowProxy66_79",
+        "Channel+id:+@ShadowProxy66+🇮🇷_1",
+        "@ShadowProxy66_84",
+        "@ShadowProxy66_83",
+        "@ShadowProxy66_121",
+        "Channel+id:+@ShadowProxy66🇭🇰",
+        "@ShadowProxy66_89",
+        "@ShadowProxy66_90",
+        "@ShadowProxy66_92",
+        "Channel+id:+@ShadowProxy66🇨🇦_1",
+        "Channel+id:+@ShadowProxy66_1",
+        "Channel+id:+@ShadowProxy66🇺🇸_1",
+        "@ShadowProxy66_91",
+        "Channel+id:+@ShadowProxy66+🇮🇷_2",
+        "Channel+id:+@ShadowProxy66_2",
+        "@ShadowProxy66_124",
+        "@ShadowProxy66_112",
+        "@ShadowProxy66_271",
+        "@ShadowProxy66_278",
+        "Channel+id:+@ShadowProxy66🇨🇦_2",
+        "@ShadowProxy66_125",
+        "Channel+id:+@ShadowProxy66🇺🇸_2",
+        "@ShadowProxy66_283",
+        "@ShadowProxy66_279",
+        "@ShadowProxy66_286",
+        "Channel+id:+@ShadowProxy66+🇬🇧_1",
+        "Channel+id:+@ShadowProxy66+_1",
+        "Channel+id:+@ShadowProxy66+🇨🇦_1",
+        "Channel+id:+@ShadowProxy66+🇨🇦_2",
+        "Channel+id:+@ShadowProxy66+🇬🇧_2",
+        "Channel id: @ShadowProxy66 🇬🇧",
+        "Channel+id:+@ShadowProxy66+🇨🇦_3",
+        "@ShadowProxy66_120",
+        "@ShadowProxy66_288",
+        "@ShadowProxy66_269",
+        "Channel+id:+@ShadowProxy66+_2",
+        "Channel+id:+@ShadowProxy66+🇬🇧_3",
+        "Channel+id:+@ShadowProxy66+🇨🇦_4",
+        "Channel+id:+@ShadowProxy66+🇬🇧_4",
+        "Channel+id:+@ShadowProxy66+🇨🇦_5",
+        "@ShadowProxy66_99",
+        "@ShadowProxy66_74",
+        "@ShadowProxy66_275",
+        "@ShadowProxy66_77",
+        "@ShadowProxy66_259",
+        "@ShadowProxy66_110",
+        "Channel+id:+@ShadowProxy66+_3",
+        "@ShadowProxy66_257",
+        "@ShadowProxy66_107",
+        "@ShadowProxy66_115",
+        "@ShadowProxy66_119",
+        "@ShadowProxy66_116",
+        "@ShadowProxy66_75",
+        "Channel+id:+@ShadowProxy66+🇨🇦_6",
+        "@ShadowProxy66_242",
+        "@ShadowProxy66_126",
+        "@ShadowProxy66_127",
+        "@ShadowProxy66_264",
+        "@ShadowProxy66_82",
+        "Channel+id:+@ShadowProxy66🇬🇧_1",
+        "@ShadowProxy66_81",
+        "@ShadowProxy66_80",
+        "Channel+id:+@ShadowProxy66🇬🇧_2",
+        "@ShadowProxy66_88",
+        "Channel+id:+@ShadowProxy66+🇺🇸",
+        "@ShadowProxy66_291",
+        "Channel id: @ShadowProxy66 🇪🇸",
+        "Channel+id:+@ShadowProxy66+_4",
+        "Channel+id:+@ShadowProxy66+_5",
+        "@ShadowProxy66_105",
+        "Channel+id:+@ShadowProxy66+_6",
+        "Channel+id:+@ShadowProxy66+_7",
+        "Channel+id:+@ShadowProxy66+_8",
+        "Channel+id:+@ShadowProxy66+_9",
+        "Channel+id:+@ShadowProxy66+_10",
+        "Channel+id:+@ShadowProxy66+_11",
+        "Channel+id:+@ShadowProxy66_3",
+        "Channel+id:+@ShadowProxy66+_12",
+        "Channel+id:+@ShadowProxy66+_13",
+        "@ShadowProxy66_262",
+        "Channel+id:+@ShadowProxy66+_14",
+        "Channel+id:+@ShadowProxy66+_15",
+        "Channel+id:+@ShadowProxy66+_16",
+        "Channel+id:+@ShadowProxy66+_17",
+        "Channel+id:+@ShadowProxy66+_18",
+        "Channel+id:+@ShadowProxy66+_19",
+        "Channel+id:+@ShadowProxy66+_20",
+        "Channel+id:+@ShadowProxy66+_21",
+        "Channel+id:+@ShadowProxy66+_22",
+        "Channel+id:+@ShadowProxy66+_23",
+        "@ShadowProxy66_260",
+        "Channel+id:+@ShadowProxy66+_24",
+        "Channel+id:+@ShadowProxy66+_25",
+        "Channel+id:+@ShadowProxy66+_26",
+        "Channel+id:+@ShadowProxy66+_27",
+        "Channel+id:+@ShadowProxy66+_28",
+        "Channel+id:+@ShadowProxy66+_29",
+        "Channel+id:+@ShadowProxy66+_30",
+        "@ShadowProxy66_266",
+        "Channel+id:+@ShadowProxy66+_31",
+        "Channel+id:+@ShadowProxy66+_32",
+        "Channel+id:+@ShadowProxy66+_33",
+        "Channel+id:+@ShadowProxy66+_34",
+        "Channel+id:+@ShadowProxy66+_35",
+        "Channel+id:+@ShadowProxy66+_36",
+        "Channel+id:+@ShadowProxy66+_37",
+        "Channel+id:+@ShadowProxy66+_38",
+        "Channel+id:+@ShadowProxy66+_39",
+        "Channel+id:+@ShadowProxy66+_40",
+        "Channel+id:+@ShadowProxy66+_41",
+        "Channel+id:+@ShadowProxy66+_42",
+        "Channel+id:+@ShadowProxy66+_43",
+        "Channel+id:+@ShadowProxy66_4",
+        "Channel+id:+@ShadowProxy66+_44",
+        "Channel+id:+@ShadowProxy66+_45",
+        "Channel+id:+@ShadowProxy66+_46",
+        "Channel+id:+@ShadowProxy66+_47",
+        "Channel+id:+@ShadowProxy66+_48",
+        "@ShadowProxy66_123",
+        "@ShadowProxy66_122",
+        "@ShadowProxy66_254",
+        "@ShadowProxy66_87",
+        "Channel+id:+@ShadowProxy66+_49",
+        "Channel+id:+@ShadowProxy66+_50",
+        "Channel+id:+@ShadowProxy66_5",
+        "Channel+id:+@ShadowProxy66+_51",
+        "@ShadowProxy66_86",
+        "Channel+id:+@ShadowProxy66+_52",
+        "Channel+id:+@ShadowProxy66+_53",
+        "Channel+id:+@ShadowProxy66+_54",
+        "Channel+id:+@ShadowProxy66+_55",
+        "Channel+id:+@ShadowProxy66+_56",
+        "Channel+id:+@ShadowProxy66+_57",
+        "Channel+id:+@ShadowProxy66+_58",
+        "Channel+id:+@ShadowProxy66+_59",
+        "Channel id: @ShadowProxy66 ",
+        "Channel+id:+@ShadowProxy66+_60",
+        "Channel+id:+@ShadowProxy66+_61",
+        "Channel+id:+@ShadowProxy66+_62",
+        "Channel+id:+@ShadowProxy66+_63",
+        "@ShadowProxy66_251"
+      ]
+    },
+    {
+      "tag": "🧩 Microsoft",
+      "type": "selector",
+      "outbounds": [
+        "direct",
+        "@ShadowProxy66_85",
+        "@ShadowProxy66_79",
+        "Channel+id:+@ShadowProxy66+🇮🇷_1",
+        "@ShadowProxy66_84",
+        "@ShadowProxy66_83",
+        "@ShadowProxy66_121",
+        "Channel+id:+@ShadowProxy66🇭🇰",
+        "@ShadowProxy66_89",
+        "@ShadowProxy66_90",
+        "@ShadowProxy66_92",
+        "Channel+id:+@ShadowProxy66🇨🇦_1",
+        "Channel+id:+@ShadowProxy66_1",
+        "Channel+id:+@ShadowProxy66🇺🇸_1",
+        "@ShadowProxy66_91",
+        "Channel+id:+@ShadowProxy66+🇮🇷_2",
+        "Channel+id:+@ShadowProxy66_2",
+        "@ShadowProxy66_124",
+        "@ShadowProxy66_112",
+        "@ShadowProxy66_271",
+        "@ShadowProxy66_278",
+        "Channel+id:+@ShadowProxy66🇨🇦_2",
+        "@ShadowProxy66_125",
+        "Channel+id:+@ShadowProxy66🇺🇸_2",
+        "@ShadowProxy66_283",
+        "@ShadowProxy66_279",
+        "@ShadowProxy66_286",
+        "Channel+id:+@ShadowProxy66+🇬🇧_1",
+        "Channel+id:+@ShadowProxy66+_1",
+        "Channel+id:+@ShadowProxy66+🇨🇦_1",
+        "Channel+id:+@ShadowProxy66+🇨🇦_2",
+        "Channel+id:+@ShadowProxy66+🇬🇧_2",
+        "Channel id: @ShadowProxy66 🇬🇧",
+        "Channel+id:+@ShadowProxy66+🇨🇦_3",
+        "@ShadowProxy66_120",
+        "@ShadowProxy66_288",
+        "@ShadowProxy66_269",
+        "Channel+id:+@ShadowProxy66+_2",
+        "Channel+id:+@ShadowProxy66+🇬🇧_3",
+        "Channel+id:+@ShadowProxy66+🇨🇦_4",
+        "Channel+id:+@ShadowProxy66+🇬🇧_4",
+        "Channel+id:+@ShadowProxy66+🇨🇦_5",
+        "@ShadowProxy66_99",
+        "@ShadowProxy66_74",
+        "@ShadowProxy66_275",
+        "@ShadowProxy66_77",
+        "@ShadowProxy66_259",
+        "@ShadowProxy66_110",
+        "Channel+id:+@ShadowProxy66+_3",
+        "@ShadowProxy66_257",
+        "@ShadowProxy66_107",
+        "@ShadowProxy66_115",
+        "@ShadowProxy66_119",
+        "@ShadowProxy66_116",
+        "@ShadowProxy66_75",
+        "Channel+id:+@ShadowProxy66+🇨🇦_6",
+        "@ShadowProxy66_242",
+        "@ShadowProxy66_126",
+        "@ShadowProxy66_127",
+        "@ShadowProxy66_264",
+        "@ShadowProxy66_82",
+        "Channel+id:+@ShadowProxy66🇬🇧_1",
+        "@ShadowProxy66_81",
+        "@ShadowProxy66_80",
+        "Channel+id:+@ShadowProxy66🇬🇧_2",
+        "@ShadowProxy66_88",
+        "Channel+id:+@ShadowProxy66+🇺🇸",
+        "@ShadowProxy66_291",
+        "Channel id: @ShadowProxy66 🇪🇸",
+        "Channel+id:+@ShadowProxy66+_4",
+        "Channel+id:+@ShadowProxy66+_5",
+        "@ShadowProxy66_105",
+        "Channel+id:+@ShadowProxy66+_6",
+        "Channel+id:+@ShadowProxy66+_7",
+        "Channel+id:+@ShadowProxy66+_8",
+        "Channel+id:+@ShadowProxy66+_9",
+        "Channel+id:+@ShadowProxy66+_10",
+        "Channel+id:+@ShadowProxy66+_11",
+        "Channel+id:+@ShadowProxy66_3",
+        "Channel+id:+@ShadowProxy66+_12",
+        "Channel+id:+@ShadowProxy66+_13",
+        "@ShadowProxy66_262",
+        "Channel+id:+@ShadowProxy66+_14",
+        "Channel+id:+@ShadowProxy66+_15",
+        "Channel+id:+@ShadowProxy66+_16",
+        "Channel+id:+@ShadowProxy66+_17",
+        "Channel+id:+@ShadowProxy66+_18",
+        "Channel+id:+@ShadowProxy66+_19",
+        "Channel+id:+@ShadowProxy66+_20",
+        "Channel+id:+@ShadowProxy66+_21",
+        "Channel+id:+@ShadowProxy66+_22",
+        "Channel+id:+@ShadowProxy66+_23",
+        "@ShadowProxy66_260",
+        "Channel+id:+@ShadowProxy66+_24",
+        "Channel+id:+@ShadowProxy66+_25",
+        "Channel+id:+@ShadowProxy66+_26",
+        "Channel+id:+@ShadowProxy66+_27",
+        "Channel+id:+@ShadowProxy66+_28",
+        "Channel+id:+@ShadowProxy66+_29",
+        "Channel+id:+@ShadowProxy66+_30",
+        "@ShadowProxy66_266",
+        "Channel+id:+@ShadowProxy66+_31",
+        "Channel+id:+@ShadowProxy66+_32",
+        "Channel+id:+@ShadowProxy66+_33",
+        "Channel+id:+@ShadowProxy66+_34",
+        "Channel+id:+@ShadowProxy66+_35",
+        "Channel+id:+@ShadowProxy66+_36",
+        "Channel+id:+@ShadowProxy66+_37",
+        "Channel+id:+@ShadowProxy66+_38",
+        "Channel+id:+@ShadowProxy66+_39",
+        "Channel+id:+@ShadowProxy66+_40",
+        "Channel+id:+@ShadowProxy66+_41",
+        "Channel+id:+@ShadowProxy66+_42",
+        "Channel+id:+@ShadowProxy66+_43",
+        "Channel+id:+@ShadowProxy66_4",
+        "Channel+id:+@ShadowProxy66+_44",
+        "Channel+id:+@ShadowProxy66+_45",
+        "Channel+id:+@ShadowProxy66+_46",
+        "Channel+id:+@ShadowProxy66+_47",
+        "Channel+id:+@ShadowProxy66+_48",
+        "@ShadowProxy66_123",
+        "@ShadowProxy66_122",
+        "@ShadowProxy66_254",
+        "@ShadowProxy66_87",
+        "Channel+id:+@ShadowProxy66+_49",
+        "Channel+id:+@ShadowProxy66+_50",
+        "Channel+id:+@ShadowProxy66_5",
+        "Channel+id:+@ShadowProxy66+_51",
+        "@ShadowProxy66_86",
+        "Channel+id:+@ShadowProxy66+_52",
+        "Channel+id:+@ShadowProxy66+_53",
+        "Channel+id:+@ShadowProxy66+_54",
+        "Channel+id:+@ShadowProxy66+_55",
+        "Channel+id:+@ShadowProxy66+_56",
+        "Channel+id:+@ShadowProxy66+_57",
+        "Channel+id:+@ShadowProxy66+_58",
+        "Channel+id:+@ShadowProxy66+_59",
+        "Channel id: @ShadowProxy66 ",
+        "Channel+id:+@ShadowProxy66+_60",
+        "Channel+id:+@ShadowProxy66+_61",
+        "Channel+id:+@ShadowProxy66+_62",
+        "Channel+id:+@ShadowProxy66+_63",
+        "@ShadowProxy66_251"
+      ]
+    },
+    {
+      "tag": "🎮 Game",
+      "type": "selector",
+      "outbounds": [
+        "direct",
+        "@ShadowProxy66_85",
+        "@ShadowProxy66_79",
+        "Channel+id:+@ShadowProxy66+🇮🇷_1",
+        "@ShadowProxy66_84",
+        "@ShadowProxy66_83",
+        "@ShadowProxy66_121",
+        "Channel+id:+@ShadowProxy66🇭🇰",
+        "@ShadowProxy66_89",
+        "@ShadowProxy66_90",
+        "@ShadowProxy66_92",
+        "Channel+id:+@ShadowProxy66🇨🇦_1",
+        "Channel+id:+@ShadowProxy66_1",
+        "Channel+id:+@ShadowProxy66🇺🇸_1",
+        "@ShadowProxy66_91",
+        "Channel+id:+@ShadowProxy66+🇮🇷_2",
+        "Channel+id:+@ShadowProxy66_2",
+        "@ShadowProxy66_124",
+        "@ShadowProxy66_112",
+        "@ShadowProxy66_271",
+        "@ShadowProxy66_278",
+        "Channel+id:+@ShadowProxy66🇨🇦_2",
+        "@ShadowProxy66_125",
+        "Channel+id:+@ShadowProxy66🇺🇸_2",
+        "@ShadowProxy66_283",
+        "@ShadowProxy66_279",
+        "@ShadowProxy66_286",
+        "Channel+id:+@ShadowProxy66+🇬🇧_1",
+        "Channel+id:+@ShadowProxy66+_1",
+        "Channel+id:+@ShadowProxy66+🇨🇦_1",
+        "Channel+id:+@ShadowProxy66+🇨🇦_2",
+        "Channel+id:+@ShadowProxy66+🇬🇧_2",
+        "Channel id: @ShadowProxy66 🇬🇧",
+        "Channel+id:+@ShadowProxy66+🇨🇦_3",
+        "@ShadowProxy66_120",
+        "@ShadowProxy66_288",
+        "@ShadowProxy66_269",
+        "Channel+id:+@ShadowProxy66+_2",
+        "Channel+id:+@ShadowProxy66+🇬🇧_3",
+        "Channel+id:+@ShadowProxy66+🇨🇦_4",
+        "Channel+id:+@ShadowProxy66+🇬🇧_4",
+        "Channel+id:+@ShadowProxy66+🇨🇦_5",
+        "@ShadowProxy66_99",
+        "@ShadowProxy66_74",
+        "@ShadowProxy66_275",
+        "@ShadowProxy66_77",
+        "@ShadowProxy66_259",
+        "@ShadowProxy66_110",
+        "Channel+id:+@ShadowProxy66+_3",
+        "@ShadowProxy66_257",
+        "@ShadowProxy66_107",
+        "@ShadowProxy66_115",
+        "@ShadowProxy66_119",
+        "@ShadowProxy66_116",
+        "@ShadowProxy66_75",
+        "Channel+id:+@ShadowProxy66+🇨🇦_6",
+        "@ShadowProxy66_242",
+        "@ShadowProxy66_126",
+        "@ShadowProxy66_127",
+        "@ShadowProxy66_264",
+        "@ShadowProxy66_82",
+        "Channel+id:+@ShadowProxy66🇬🇧_1",
+        "@ShadowProxy66_81",
+        "@ShadowProxy66_80",
+        "Channel+id:+@ShadowProxy66🇬🇧_2",
+        "@ShadowProxy66_88",
+        "Channel+id:+@ShadowProxy66+🇺🇸",
+        "@ShadowProxy66_291",
+        "Channel id: @ShadowProxy66 🇪🇸",
+        "Channel+id:+@ShadowProxy66+_4",
+        "Channel+id:+@ShadowProxy66+_5",
+        "@ShadowProxy66_105",
+        "Channel+id:+@ShadowProxy66+_6",
+        "Channel+id:+@ShadowProxy66+_7",
+        "Channel+id:+@ShadowProxy66+_8",
+        "Channel+id:+@ShadowProxy66+_9",
+        "Channel+id:+@ShadowProxy66+_10",
+        "Channel+id:+@ShadowProxy66+_11",
+        "Channel+id:+@ShadowProxy66_3",
+        "Channel+id:+@ShadowProxy66+_12",
+        "Channel+id:+@ShadowProxy66+_13",
+        "@ShadowProxy66_262",
+        "Channel+id:+@ShadowProxy66+_14",
+        "Channel+id:+@ShadowProxy66+_15",
+        "Channel+id:+@ShadowProxy66+_16",
+        "Channel+id:+@ShadowProxy66+_17",
+        "Channel+id:+@ShadowProxy66+_18",
+        "Channel+id:+@ShadowProxy66+_19",
+        "Channel+id:+@ShadowProxy66+_20",
+        "Channel+id:+@ShadowProxy66+_21",
+        "Channel+id:+@ShadowProxy66+_22",
+        "Channel+id:+@ShadowProxy66+_23",
+        "@ShadowProxy66_260",
+        "Channel+id:+@ShadowProxy66+_24",
+        "Channel+id:+@ShadowProxy66+_25",
+        "Channel+id:+@ShadowProxy66+_26",
+        "Channel+id:+@ShadowProxy66+_27",
+        "Channel+id:+@ShadowProxy66+_28",
+        "Channel+id:+@ShadowProxy66+_29",
+        "Channel+id:+@ShadowProxy66+_30",
+        "@ShadowProxy66_266",
+        "Channel+id:+@ShadowProxy66+_31",
+        "Channel+id:+@ShadowProxy66+_32",
+        "Channel+id:+@ShadowProxy66+_33",
+        "Channel+id:+@ShadowProxy66+_34",
+        "Channel+id:+@ShadowProxy66+_35",
+        "Channel+id:+@ShadowProxy66+_36",
+        "Channel+id:+@ShadowProxy66+_37",
+        "Channel+id:+@ShadowProxy66+_38",
+        "Channel+id:+@ShadowProxy66+_39",
+        "Channel+id:+@ShadowProxy66+_40",
+        "Channel+id:+@ShadowProxy66+_41",
+        "Channel+id:+@ShadowProxy66+_42",
+        "Channel+id:+@ShadowProxy66+_43",
+        "Channel+id:+@ShadowProxy66_4",
+        "Channel+id:+@ShadowProxy66+_44",
+        "Channel+id:+@ShadowProxy66+_45",
+        "Channel+id:+@ShadowProxy66+_46",
+        "Channel+id:+@ShadowProxy66+_47",
+        "Channel+id:+@ShadowProxy66+_48",
+        "@ShadowProxy66_123",
+        "@ShadowProxy66_122",
+        "@ShadowProxy66_254",
+        "@ShadowProxy66_87",
+        "Channel+id:+@ShadowProxy66+_49",
+        "Channel+id:+@ShadowProxy66+_50",
+        "Channel+id:+@ShadowProxy66_5",
+        "Channel+id:+@ShadowProxy66+_51",
+        "@ShadowProxy66_86",
+        "Channel+id:+@ShadowProxy66+_52",
+        "Channel+id:+@ShadowProxy66+_53",
+        "Channel+id:+@ShadowProxy66+_54",
+        "Channel+id:+@ShadowProxy66+_55",
+        "Channel+id:+@ShadowProxy66+_56",
+        "Channel+id:+@ShadowProxy66+_57",
+        "Channel+id:+@ShadowProxy66+_58",
+        "Channel+id:+@ShadowProxy66+_59",
+        "Channel id: @ShadowProxy66 ",
+        "Channel+id:+@ShadowProxy66+_60",
+        "Channel+id:+@ShadowProxy66+_61",
+        "Channel+id:+@ShadowProxy66+_62",
+        "Channel+id:+@ShadowProxy66+_63",
+        "@ShadowProxy66_251"
+      ]
+    },
+    {
+      "tag": "📺 Bilibili",
+      "type": "selector",
+      "outbounds": [
+        "direct"
+      ]
+    },
+    {
+      "tag": "🎬 MediaVideo",
+      "type": "selector",
+      "outbounds": [
+        "direct",
+        "@ShadowProxy66_85",
+        "@ShadowProxy66_79",
+        "Channel+id:+@ShadowProxy66+🇮🇷_1",
+        "@ShadowProxy66_84",
+        "@ShadowProxy66_83",
+        "@ShadowProxy66_121",
+        "Channel+id:+@ShadowProxy66🇭🇰",
+        "@ShadowProxy66_89",
+        "@ShadowProxy66_90",
+        "@ShadowProxy66_92",
+        "Channel+id:+@ShadowProxy66🇨🇦_1",
+        "Channel+id:+@ShadowProxy66_1",
+        "Channel+id:+@ShadowProxy66🇺🇸_1",
+        "@ShadowProxy66_91",
+        "Channel+id:+@ShadowProxy66+🇮🇷_2",
+        "Channel+id:+@ShadowProxy66_2",
+        "@ShadowProxy66_124",
+        "@ShadowProxy66_112",
+        "@ShadowProxy66_271",
+        "@ShadowProxy66_278",
+        "Channel+id:+@ShadowProxy66🇨🇦_2",
+        "@ShadowProxy66_125",
+        "Channel+id:+@ShadowProxy66🇺🇸_2",
+        "@ShadowProxy66_283",
+        "@ShadowProxy66_279",
+        "@ShadowProxy66_286",
+        "Channel+id:+@ShadowProxy66+🇬🇧_1",
+        "Channel+id:+@ShadowProxy66+_1",
+        "Channel+id:+@ShadowProxy66+🇨🇦_1",
+        "Channel+id:+@ShadowProxy66+🇨🇦_2",
+        "Channel+id:+@ShadowProxy66+🇬🇧_2",
+        "Channel id: @ShadowProxy66 🇬🇧",
+        "Channel+id:+@ShadowProxy66+🇨🇦_3",
+        "@ShadowProxy66_120",
+        "@ShadowProxy66_288",
+        "@ShadowProxy66_269",
+        "Channel+id:+@ShadowProxy66+_2",
+        "Channel+id:+@ShadowProxy66+🇬🇧_3",
+        "Channel+id:+@ShadowProxy66+🇨🇦_4",
+        "Channel+id:+@ShadowProxy66+🇬🇧_4",
+        "Channel+id:+@ShadowProxy66+🇨🇦_5",
+        "@ShadowProxy66_99",
+        "@ShadowProxy66_74",
+        "@ShadowProxy66_275",
+        "@ShadowProxy66_77",
+        "@ShadowProxy66_259",
+        "@ShadowProxy66_110",
+        "Channel+id:+@ShadowProxy66+_3",
+        "@ShadowProxy66_257",
+        "@ShadowProxy66_107",
+        "@ShadowProxy66_115",
+        "@ShadowProxy66_119",
+        "@ShadowProxy66_116",
+        "@ShadowProxy66_75",
+        "Channel+id:+@ShadowProxy66+🇨🇦_6",
+        "@ShadowProxy66_242",
+        "@ShadowProxy66_126",
+        "@ShadowProxy66_127",
+        "@ShadowProxy66_264",
+        "@ShadowProxy66_82",
+        "Channel+id:+@ShadowProxy66🇬🇧_1",
+        "@ShadowProxy66_81",
+        "@ShadowProxy66_80",
+        "Channel+id:+@ShadowProxy66🇬🇧_2",
+        "@ShadowProxy66_88",
+        "Channel+id:+@ShadowProxy66+🇺🇸",
+        "@ShadowProxy66_291",
+        "Channel id: @ShadowProxy66 🇪🇸",
+        "Channel+id:+@ShadowProxy66+_4",
+        "Channel+id:+@ShadowProxy66+_5",
+        "@ShadowProxy66_105",
+        "Channel+id:+@ShadowProxy66+_6",
+        "Channel+id:+@ShadowProxy66+_7",
+        "Channel+id:+@ShadowProxy66+_8",
+        "Channel+id:+@ShadowProxy66+_9",
+        "Channel+id:+@ShadowProxy66+_10",
+        "Channel+id:+@ShadowProxy66+_11",
+        "Channel+id:+@ShadowProxy66_3",
+        "Channel+id:+@ShadowProxy66+_12",
+        "Channel+id:+@ShadowProxy66+_13",
+        "@ShadowProxy66_262",
+        "Channel+id:+@ShadowProxy66+_14",
+        "Channel+id:+@ShadowProxy66+_15",
+        "Channel+id:+@ShadowProxy66+_16",
+        "Channel+id:+@ShadowProxy66+_17",
+        "Channel+id:+@ShadowProxy66+_18",
+        "Channel+id:+@ShadowProxy66+_19",
+        "Channel+id:+@ShadowProxy66+_20",
+        "Channel+id:+@ShadowProxy66+_21",
+        "Channel+id:+@ShadowProxy66+_22",
+        "Channel+id:+@ShadowProxy66+_23",
+        "@ShadowProxy66_260",
+        "Channel+id:+@ShadowProxy66+_24",
+        "Channel+id:+@ShadowProxy66+_25",
+        "Channel+id:+@ShadowProxy66+_26",
+        "Channel+id:+@ShadowProxy66+_27",
+        "Channel+id:+@ShadowProxy66+_28",
+        "Channel+id:+@ShadowProxy66+_29",
+        "Channel+id:+@ShadowProxy66+_30",
+        "@ShadowProxy66_266",
+        "Channel+id:+@ShadowProxy66+_31",
+        "Channel+id:+@ShadowProxy66+_32",
+        "Channel+id:+@ShadowProxy66+_33",
+        "Channel+id:+@ShadowProxy66+_34",
+        "Channel+id:+@ShadowProxy66+_35",
+        "Channel+id:+@ShadowProxy66+_36",
+        "Channel+id:+@ShadowProxy66+_37",
+        "Channel+id:+@ShadowProxy66+_38",
+        "Channel+id:+@ShadowProxy66+_39",
+        "Channel+id:+@ShadowProxy66+_40",
+        "Channel+id:+@ShadowProxy66+_41",
+        "Channel+id:+@ShadowProxy66+_42",
+        "Channel+id:+@ShadowProxy66+_43",
+        "Channel+id:+@ShadowProxy66_4",
+        "Channel+id:+@ShadowProxy66+_44",
+        "Channel+id:+@ShadowProxy66+_45",
+        "Channel+id:+@ShadowProxy66+_46",
+        "Channel+id:+@ShadowProxy66+_47",
+        "Channel+id:+@ShadowProxy66+_48",
+        "@ShadowProxy66_123",
+        "@ShadowProxy66_122",
+        "@ShadowProxy66_254",
+        "@ShadowProxy66_87",
+        "Channel+id:+@ShadowProxy66+_49",
+        "Channel+id:+@ShadowProxy66+_50",
+        "Channel+id:+@ShadowProxy66_5",
+        "Channel+id:+@ShadowProxy66+_51",
+        "@ShadowProxy66_86",
+        "Channel+id:+@ShadowProxy66+_52",
+        "Channel+id:+@ShadowProxy66+_53",
+        "Channel+id:+@ShadowProxy66+_54",
+        "Channel+id:+@ShadowProxy66+_55",
+        "Channel+id:+@ShadowProxy66+_56",
+        "Channel+id:+@ShadowProxy66+_57",
+        "Channel+id:+@ShadowProxy66+_58",
+        "Channel+id:+@ShadowProxy66+_59",
+        "Channel id: @ShadowProxy66 ",
+        "Channel+id:+@ShadowProxy66+_60",
+        "Channel+id:+@ShadowProxy66+_61",
+        "Channel+id:+@ShadowProxy66+_62",
+        "Channel+id:+@ShadowProxy66+_63",
+        "@ShadowProxy66_251"
+      ]
+    },
+    {
+      "tag": "🌏 !cn",
+      "type": "selector",
+      "outbounds": [
+        "direct",
+        "@ShadowProxy66_85",
+        "@ShadowProxy66_79",
+        "Channel+id:+@ShadowProxy66+🇮🇷_1",
+        "@ShadowProxy66_84",
+        "@ShadowProxy66_83",
+        "@ShadowProxy66_121",
+        "Channel+id:+@ShadowProxy66🇭🇰",
+        "@ShadowProxy66_89",
+        "@ShadowProxy66_90",
+        "@ShadowProxy66_92",
+        "Channel+id:+@ShadowProxy66🇨🇦_1",
+        "Channel+id:+@ShadowProxy66_1",
+        "Channel+id:+@ShadowProxy66🇺🇸_1",
+        "@ShadowProxy66_91",
+        "Channel+id:+@ShadowProxy66+🇮🇷_2",
+        "Channel+id:+@ShadowProxy66_2",
+        "@ShadowProxy66_124",
+        "@ShadowProxy66_112",
+        "@ShadowProxy66_271",
+        "@ShadowProxy66_278",
+        "Channel+id:+@ShadowProxy66🇨🇦_2",
+        "@ShadowProxy66_125",
+        "Channel+id:+@ShadowProxy66🇺🇸_2",
+        "@ShadowProxy66_283",
+        "@ShadowProxy66_279",
+        "@ShadowProxy66_286",
+        "Channel+id:+@ShadowProxy66+🇬🇧_1",
+        "Channel+id:+@ShadowProxy66+_1",
+        "Channel+id:+@ShadowProxy66+🇨🇦_1",
+        "Channel+id:+@ShadowProxy66+🇨🇦_2",
+        "Channel+id:+@ShadowProxy66+🇬🇧_2",
+        "Channel id: @ShadowProxy66 🇬🇧",
+        "Channel+id:+@ShadowProxy66+🇨🇦_3",
+        "@ShadowProxy66_120",
+        "@ShadowProxy66_288",
+        "@ShadowProxy66_269",
+        "Channel+id:+@ShadowProxy66+_2",
+        "Channel+id:+@ShadowProxy66+🇬🇧_3",
+        "Channel+id:+@ShadowProxy66+🇨🇦_4",
+        "Channel+id:+@ShadowProxy66+🇬🇧_4",
+        "Channel+id:+@ShadowProxy66+🇨🇦_5",
+        "@ShadowProxy66_99",
+        "@ShadowProxy66_74",
+        "@ShadowProxy66_275",
+        "@ShadowProxy66_77",
+        "@ShadowProxy66_259",
+        "@ShadowProxy66_110",
+        "Channel+id:+@ShadowProxy66+_3",
+        "@ShadowProxy66_257",
+        "@ShadowProxy66_107",
+        "@ShadowProxy66_115",
+        "@ShadowProxy66_119",
+        "@ShadowProxy66_116",
+        "@ShadowProxy66_75",
+        "Channel+id:+@ShadowProxy66+🇨🇦_6",
+        "@ShadowProxy66_242",
+        "@ShadowProxy66_126",
+        "@ShadowProxy66_127",
+        "@ShadowProxy66_264",
+        "@ShadowProxy66_82",
+        "Channel+id:+@ShadowProxy66🇬🇧_1",
+        "@ShadowProxy66_81",
+        "@ShadowProxy66_80",
+        "Channel+id:+@ShadowProxy66🇬🇧_2",
+        "@ShadowProxy66_88",
+        "Channel+id:+@ShadowProxy66+🇺🇸",
+        "@ShadowProxy66_291",
+        "Channel id: @ShadowProxy66 🇪🇸",
+        "Channel+id:+@ShadowProxy66+_4",
+        "Channel+id:+@ShadowProxy66+_5",
+        "@ShadowProxy66_105",
+        "Channel+id:+@ShadowProxy66+_6",
+        "Channel+id:+@ShadowProxy66+_7",
+        "Channel+id:+@ShadowProxy66+_8",
+        "Channel+id:+@ShadowProxy66+_9",
+        "Channel+id:+@ShadowProxy66+_10",
+        "Channel+id:+@ShadowProxy66+_11",
+        "Channel+id:+@ShadowProxy66_3",
+        "Channel+id:+@ShadowProxy66+_12",
+        "Channel+id:+@ShadowProxy66+_13",
+        "@ShadowProxy66_262",
+        "Channel+id:+@ShadowProxy66+_14",
+        "Channel+id:+@ShadowProxy66+_15",
+        "Channel+id:+@ShadowProxy66+_16",
+        "Channel+id:+@ShadowProxy66+_17",
+        "Channel+id:+@ShadowProxy66+_18",
+        "Channel+id:+@ShadowProxy66+_19",
+        "Channel+id:+@ShadowProxy66+_20",
+        "Channel+id:+@ShadowProxy66+_21",
+        "Channel+id:+@ShadowProxy66+_22",
+        "Channel+id:+@ShadowProxy66+_23",
+        "@ShadowProxy66_260",
+        "Channel+id:+@ShadowProxy66+_24",
+        "Channel+id:+@ShadowProxy66+_25",
+        "Channel+id:+@ShadowProxy66+_26",
+        "Channel+id:+@ShadowProxy66+_27",
+        "Channel+id:+@ShadowProxy66+_28",
+        "Channel+id:+@ShadowProxy66+_29",
+        "Channel+id:+@ShadowProxy66+_30",
+        "@ShadowProxy66_266",
+        "Channel+id:+@ShadowProxy66+_31",
+        "Channel+id:+@ShadowProxy66+_32",
+        "Channel+id:+@ShadowProxy66+_33",
+        "Channel+id:+@ShadowProxy66+_34",
+        "Channel+id:+@ShadowProxy66+_35",
+        "Channel+id:+@ShadowProxy66+_36",
+        "Channel+id:+@ShadowProxy66+_37",
+        "Channel+id:+@ShadowProxy66+_38",
+        "Channel+id:+@ShadowProxy66+_39",
+        "Channel+id:+@ShadowProxy66+_40",
+        "Channel+id:+@ShadowProxy66+_41",
+        "Channel+id:+@ShadowProxy66+_42",
+        "Channel+id:+@ShadowProxy66+_43",
+        "Channel+id:+@ShadowProxy66_4",
+        "Channel+id:+@ShadowProxy66+_44",
+        "Channel+id:+@ShadowProxy66+_45",
+        "Channel+id:+@ShadowProxy66+_46",
+        "Channel+id:+@ShadowProxy66+_47",
+        "Channel+id:+@ShadowProxy66+_48",
+        "@ShadowProxy66_123",
+        "@ShadowProxy66_122",
+        "@ShadowProxy66_254",
+        "@ShadowProxy66_87",
+        "Channel+id:+@ShadowProxy66+_49",
+        "Channel+id:+@ShadowProxy66+_50",
+        "Channel+id:+@ShadowProxy66_5",
+        "Channel+id:+@ShadowProxy66+_51",
+        "@ShadowProxy66_86",
+        "Channel+id:+@ShadowProxy66+_52",
+        "Channel+id:+@ShadowProxy66+_53",
+        "Channel+id:+@ShadowProxy66+_54",
+        "Channel+id:+@ShadowProxy66+_55",
+        "Channel+id:+@ShadowProxy66+_56",
+        "Channel+id:+@ShadowProxy66+_57",
+        "Channel+id:+@ShadowProxy66+_58",
+        "Channel+id:+@ShadowProxy66+_59",
+        "Channel id: @ShadowProxy66 ",
+        "Channel+id:+@ShadowProxy66+_60",
+        "Channel+id:+@ShadowProxy66+_61",
+        "Channel+id:+@ShadowProxy66+_62",
+        "Channel+id:+@ShadowProxy66+_63",
+        "@ShadowProxy66_251"
+      ]
+    },
+    {
+      "tag": "🌏 cn",
+      "type": "selector",
+      "outbounds": [
+        "direct",
+        "select"
+      ]
+    },
+    {
+      "tag": "🛑 AdBlock",
+      "type": "selector",
+      "outbounds": [
+        "block",
+        "direct"
+      ]
+    },
+    {
+      "tag": "direct",
+      "type": "direct"
+    },
+    {
+      "tag": "block",
+      "type": "block"
+    },
+    {
+      "tag": "dns-out",
+      "type": "dns"
+    },
+    {
+      "server": "195.123.246.188",
+      "server_port": 16757,
+      "password": "el5gGw5SzPhy1lM05BnVAl",
+      "method": "chacha20-ietf-poly1305",
+      "tag": "@ShadowProxy66_85",
+      "type": "shadowsocks"
+    },
+    {
+      "server": "213.183.41.249",
+      "server_port": 17128,
+      "password": "V97dhx72hvuo2vrEFxRLWb",
+      "method": "chacha20-ietf-poly1305",
+      "tag": "@ShadowProxy66_79",
+      "type": "shadowsocks"
+    },
+    {
+      "server": "rpn3.yuzvpn.com",
+      "server_port": 41510,
+      "tls": {
+        "enabled": true
+      },
+      "uuid": "e328f37a-1a6d-4b9a-b744-96f104f848ac",
+      "tag": "Channel+id:+@ShadowProxy66+🇮🇷_1",
+      "type": "vless"
+    },
+    {
+      "server": "45.90.59.164",
+      "server_port": 18133,
+      "password": "Z6vvmn8tUNwobB8lH4YAJb",
+      "method": "chacha20-ietf-poly1305",
+      "tag": "@ShadowProxy66_84",
+      "type": "shadowsocks"
+    },
+    {
+      "server": "217.30.10.102",
+      "server_port": 42417,
+      "password": "U2bzuANk66iptgqtRyxOmm",
+      "method": "chacha20-ietf-poly1305",
+      "tag": "@ShadowProxy66_83",
+      "type": "shadowsocks"
+    },
+    {
+      "server": "89.36.161.3",
+      "server_port": 9592,
+      "password": "kyEFk5bTfnhJWytwnY4NIq",
+      "method": "chacha20-ietf-poly1305",
+      "tag": "@ShadowProxy66_121",
+      "type": "shadowsocks"
+    },
+    {
+      "server": "104.16.32.40",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "baipiao406.stunning-bassoon.pages.dev"
+      },
+      "transport": {
+        "path": "/?ed=2048",
+        "type": "ws",
+        "max_early_data": 4096,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "tag": "Channel+id:+@ShadowProxy66🇭🇰",
+      "type": "vless"
+    },
+    {
+      "server": "193.238.153.21",
+      "server_port": 38222,
+      "password": "zutf9IlHzk8Dlgd2jKvvbE",
+      "method": "chacha20-ietf-poly1305",
+      "tag": "@ShadowProxy66_89",
+      "type": "shadowsocks"
+    },
+    {
+      "server": "5.188.183.141",
+      "server_port": 27085,
+      "password": "gOoNUcmzACsx0UfKvI9P1d",
+      "method": "chacha20-ietf-poly1305",
+      "tag": "@ShadowProxy66_90",
+      "type": "shadowsocks"
+    },
+    {
+      "server": "149.56.95.159",
+      "server_port": 34539,
+      "password": "QAj5qdD9gXds7xNsYPFTzL",
+      "method": "chacha20-ietf-poly1305",
+      "tag": "@ShadowProxy66_92",
+      "type": "shadowsocks"
+    },
+    {
+      "server": "104.16.45.12",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "pages.20230619.love"
+      },
+      "transport": {
+        "path": "/?ed=2048",
+        "type": "ws",
+        "max_early_data": 4096,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "uuid": "60813b9d-aa0e-4a5c-88b8-ed231058e82a",
+      "tag": "Channel+id:+@ShadowProxy66🇨🇦_1",
+      "type": "vless"
+    },
+    {
+      "server": "104.16.30.14",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "public.satoshi.mom",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/t.me/satoshivpn?ed=2048",
+        "type": "ws",
+        "max_early_data": 4096,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "uuid": "4cc278b5-74b7-5d49-8f78-a412058cdbc3",
+      "tag": "Channel+id:+@ShadowProxy66_1",
+      "type": "vless"
+    },
+    {
+      "server": "172.67.150.151",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "edgu.pureboy.eu.org"
+      },
+      "transport": {
+        "path": "Path/Telegram@v2ray_alpha/?ed=2048",
+        "type": "ws",
+        "max_early_data": 4096,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "uuid": "04a93bb8-0a5b-4aa8-ab7f-31fc7adab1c1",
+      "tag": "Channel+id:+@ShadowProxy66🇺🇸_1",
+      "type": "vless"
+    },
+    {
+      "server": "85.239.61.132",
+      "server_port": 25380,
+      "password": "ttPki7vWWItZ4bNkT6VqCG",
+      "method": "chacha20-ietf-poly1305",
+      "tag": "@ShadowProxy66_91",
+      "type": "shadowsocks"
+    },
+    {
+      "server": "rpn4.yuzvpn.com",
+      "server_port": 53694,
+      "tls": {
+        "enabled": true
+      },
+      "uuid": "b94468b1-512a-4150-a5fb-865601c548a2",
+      "tag": "Channel+id:+@ShadowProxy66+🇮🇷_2",
+      "type": "vless"
+    },
+    {
+      "server": "104.21.25.19",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "uk1-vless.vpnhack.xyz"
+      },
+      "transport": {
+        "path": "/vless",
+        "type": "ws",
+        "max_early_data": 4096,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "uuid": "304096c0-8852-4e61-ba9b-ece9250230e3",
+      "tag": "Channel+id:+@ShadowProxy66_2",
+      "type": "vless"
+    },
+    {
+      "server": "91.192.81.156",
+      "server_port": 22117,
+      "password": "MfW4JIC4ykedj9n0xMnuUy",
+      "method": "chacha20-ietf-poly1305",
+      "tag": "@ShadowProxy66_124",
+      "type": "shadowsocks"
+    },
+    {
+      "server": "y4vBc.awayne.cloud",
+      "server_port": 80,
+      "transport": {
+        "path": "/vmess",
+        "type": "ws",
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "uuid": "e32df032-745a-43d0-892a-5f023dabd018",
+      "packet_encoding": "xudp",
+      "security": "auto",
+      "alter_id": 0,
+      "tag": "@ShadowProxy66_112",
+      "type": "vmess"
+    },
+    {
+      "server": "ipb.ai-app-list.buzz",
+      "server_port": 2087,
+      "tls": {
+        "enabled": true,
+        "server_name": "s2scwsx.germanidastgah.com"
+      },
+      "transport": {
+        "type": "grpc"
+      },
+      "uuid": "db0cd79e-5a22-4ce2-b784-03f8c9325cc4",
+      "tag": "@ShadowProxy66_271",
+      "type": "vless"
+    },
+    {
+      "server": "ipb.ai-app-list.buzz",
+      "server_port": 2087,
+      "tls": {
+        "enabled": true,
+        "server_name": "s4ce.jimzadiraftiare.com"
+      },
+      "transport": {
+        "type": "grpc"
+      },
+      "uuid": "db0cd79e-5a22-4ce2-b784-03f8c9325cc4",
+      "tag": "@ShadowProxy66_278",
+      "type": "vless"
+    },
+    {
+      "server": "172.64.80.150",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "always-online1.lp-airdrop.top",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "randomized"
+        }
+      },
+      "transport": {
+        "path": "/?ed=2048",
+        "type": "ws",
+        "max_early_data": 4096,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "uuid": "b75b3034-36ab-4979-beae-3d02db1b11ec",
+      "tag": "Channel+id:+@ShadowProxy66🇨🇦_2",
+      "type": "vless"
+    },
+    {
+      "server": "UU10n.awayne.cloud",
+      "server_port": 80,
+      "transport": {
+        "path": "/vmess",
+        "type": "ws",
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "uuid": "ba0b7fdc-e5f4-4108-9458-d9d3d93f091a",
+      "packet_encoding": "xudp",
+      "security": "auto",
+      "alter_id": 0,
+      "tag": "@ShadowProxy66_125",
+      "type": "vmess"
+    },
+    {
+      "server": "172.64.166.186",
+      "server_port": 2083,
+      "tls": {
+        "enabled": true,
+        "server_name": "edgood.king361.cf"
+      },
+      "transport": {
+        "path": "【TG：@vpnproxy66】定时更新节点",
+        "type": "ws",
+        "max_early_data": 4096,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "tag": "Channel+id:+@ShadowProxy66🇺🇸_2",
+      "type": "vless"
+    },
+    {
+      "server": "ipb.ai-app-list.buzz",
+      "server_port": 2087,
+      "tls": {
+        "enabled": true,
+        "server_name": "s1cscyvh.zanjanchorah.com"
+      },
+      "transport": {
+        "type": "grpc"
+      },
+      "uuid": "db0cd79e-5a22-4ce2-b784-03f8c9325cc4",
+      "tag": "@ShadowProxy66_283",
+      "type": "vless"
+    },
+    {
+      "server": "ipb.ai-app-list.buzz",
+      "server_port": 2087,
+      "tls": {
+        "enabled": true,
+        "server_name": "cssa.jimzadiraftiare.com"
+      },
+      "transport": {
+        "type": "grpc"
+      },
+      "uuid": "db0cd79e-5a22-4ce2-b784-03f8c9325cc4",
+      "tag": "@ShadowProxy66_279",
+      "type": "vless"
+    },
+    {
+      "server": "ipb.ai-app-list.buzz",
+      "server_port": 2087,
+      "tls": {
+        "enabled": true,
+        "server_name": "s1cscyvh.zanjanchorah.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc"
+      },
+      "uuid": "db0cd79e-5a22-4ce2-b784-03f8c9325cc4",
+      "tag": "@ShadowProxy66_286",
+      "type": "vless"
+    },
+    {
+      "server": "zula.ir",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "ye5gy.livingspringonline.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc"
+      },
+      "uuid": "416339cf-dadd-4831-987b-80f8434d2ebe",
+      "tag": "Channel+id:+@ShadowProxy66+🇬🇧_1",
+      "type": "vless"
+    },
+    {
+      "server": "zula.ir",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "ty2.livingspringonline.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc"
+      },
+      "uuid": "416339cf-dadd-4831-987b-80f8434d2ebe",
+      "tag": "Channel+id:+@ShadowProxy66+_1",
+      "type": "vless"
+    },
+    {
+      "server": "z-v2-003592.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "z-v2-003592.kailib.com"
+      },
+      "transport": {
+        "path": "/store?ed=2048",
+        "type": "ws",
+        "max_early_data": 4096,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "uuid": "64921a6f-d4ca-4f4c-b279-73b96e32a9d3",
+      "tag": "Channel+id:+@ShadowProxy66+🇨🇦_1",
+      "type": "vless"
+    },
+    {
+      "server": "zula.ir",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "rgfvf.livingspringonline.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc"
+      },
+      "uuid": "416339cf-dadd-4831-987b-80f8434d2ebe",
+      "tag": "Channel+id:+@ShadowProxy66+🇨🇦_2",
+      "type": "vless"
+    },
+    {
+      "server": "zula.ir",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "rthsgd.livingspringonline.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc"
+      },
+      "uuid": "416339cf-dadd-4831-987b-80f8434d2ebe",
+      "tag": "Channel+id:+@ShadowProxy66+🇬🇧_2",
+      "type": "vless"
+    },
+    {
+      "server": "gcore.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "iran-fars.ir"
+      },
+      "transport": {
+        "path": "/",
+        "type": "ws",
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "uuid": "acdd5a85-be11-4e5b-a567-28f62fdceaff",
+      "packet_encoding": "xudp",
+      "security": "aes-128-gcm",
+      "alter_id": 0,
+      "tag": "Channel id: @ShadowProxy66 🇬🇧",
+      "type": "vmess"
+    },
+    {
+      "server": "zula.ir",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "drtgh.livingspringonline.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc"
+      },
+      "uuid": "416339cf-dadd-4831-987b-80f8434d2ebe",
+      "tag": "Channel+id:+@ShadowProxy66+🇨🇦_3",
+      "type": "vless"
+    },
+    {
+      "server": "4efad.awayne.cloud",
+      "server_port": 80,
+      "transport": {
+        "path": "/vmess",
+        "type": "ws",
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "uuid": "c28f7a09-fae3-4257-bd06-8fb6c311078b",
+      "packet_encoding": "xudp",
+      "security": "auto",
+      "alter_id": 0,
+      "tag": "@ShadowProxy66_120",
+      "type": "vmess"
+    },
+    {
+      "server": "ipb.ai-app-list.buzz",
+      "server_port": 2087,
+      "tls": {
+        "enabled": true,
+        "server_name": "cssa.jimzadiraftiare.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc"
+      },
+      "uuid": "db0cd79e-5a22-4ce2-b784-03f8c9325cc4",
+      "tag": "@ShadowProxy66_288",
+      "type": "vless"
+    },
+    {
+      "server": "zula.ir",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "zx3.taxgeniez.info",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc"
+      },
+      "uuid": "43f92a50-1104-4d99-a607-3387edbd87f0",
+      "tag": "@ShadowProxy66_269",
+      "type": "vless"
+    },
+    {
+      "server": "gcore.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "85.15.1.14",
+        "insecure": true
+      },
+      "transport": {
+        "path": "/",
+        "type": "ws",
+        "max_early_data": 4096,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "password": "67Otq4AtTO",
+      "tag": "Channel+id:+@ShadowProxy66+_2",
+      "type": "trojan"
+    },
+    {
+      "server": "zula.ir",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "ty3.livingspringonline.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc"
+      },
+      "uuid": "416339cf-dadd-4831-987b-80f8434d2ebe",
+      "tag": "Channel+id:+@ShadowProxy66+🇬🇧_3",
+      "type": "vless"
+    },
+    {
+      "server": "zula.ir",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "ty1.livingspringonline.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc"
+      },
+      "uuid": "416339cf-dadd-4831-987b-80f8434d2ebe",
+      "tag": "Channel+id:+@ShadowProxy66+🇨🇦_4",
+      "type": "vless"
+    },
+    {
+      "server": "gcore.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "iran-pars.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "ios"
+        }
+      },
+      "transport": {
+        "path": "/",
+        "type": "ws",
+        "max_early_data": 4096,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "uuid": "6d101753-db2e-4ae4-a5fd-77e4d7527d20",
+      "tag": "Channel+id:+@ShadowProxy66+🇬🇧_4",
+      "type": "vless"
+    },
+    {
+      "server": "zula.ir",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "dgdgd.livingspringonline.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc"
+      },
+      "uuid": "416339cf-dadd-4831-987b-80f8434d2ebe",
+      "tag": "Channel+id:+@ShadowProxy66+🇨🇦_5",
+      "type": "vless"
+    },
+    {
+      "server": "df542.awayne.cloud",
+      "server_port": 80,
+      "transport": {
+        "path": "/vmess",
+        "type": "ws",
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "uuid": "d12ac207-95fa-46a9-8537-d845f8daff9d",
+      "packet_encoding": "xudp",
+      "security": "auto",
+      "alter_id": 0,
+      "tag": "@ShadowProxy66_99",
+      "type": "vmess"
+    },
+    {
+      "server": "ip.ai-app-list.buzz",
+      "server_port": 2087,
+      "tls": {
+        "enabled": true,
+        "server_name": "Us1.kirouch.fun",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc"
+      },
+      "uuid": "838f5273-5d2d-4630-a0f5-9cc8e4aef4d6",
+      "tag": "@ShadowProxy66_74",
+      "type": "vless"
+    },
+    {
+      "server": "ipb.ai-app-list.buzz",
+      "server_port": 2087,
+      "tls": {
+        "enabled": true,
+        "server_name": "s4ce.jimzadiraftiare.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc"
+      },
+      "uuid": "db0cd79e-5a22-4ce2-b784-03f8c9325cc4",
+      "tag": "@ShadowProxy66_275",
+      "type": "vless"
+    },
+    {
+      "server": "ip.ai-app-list.buzz",
+      "server_port": 2087,
+      "tls": {
+        "enabled": true,
+        "server_name": "Us3.kirouch.fun",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc"
+      },
+      "uuid": "838f5273-5d2d-4630-a0f5-9cc8e4aef4d6",
+      "tag": "@ShadowProxy66_77",
+      "type": "vless"
+    },
+    {
+      "server": "ipb.ai-app-list.buzz",
+      "server_port": 2087,
+      "tls": {
+        "enabled": true,
+        "server_name": "s2scwsx.germanidastgah.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc"
+      },
+      "uuid": "db0cd79e-5a22-4ce2-b784-03f8c9325cc4",
+      "tag": "@ShadowProxy66_259",
+      "type": "vless"
+    },
+    {
+      "server": "31f3e.awayne.cloud",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "31f3e.awayne.cloud"
+      },
+      "transport": {
+        "path": "/vless",
+        "type": "ws",
+        "max_early_data": 4096,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "uuid": "ae66c024-6011-456b-ab9d-f39e9ec87c84",
+      "tag": "@ShadowProxy66_110",
+      "type": "vless"
+    },
+    {
+      "server": "z-v2-003631.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_3",
+      "type": "trojan"
+    },
+    {
+      "server": "zula.ir",
+      "server_port": 2096,
+      "tls": {
+        "enabled": true,
+        "server_name": "sup1.deportista.info",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc"
+      },
+      "uuid": "06b7f66e-25e1-4f55-b4a2-b4c496dba688",
+      "tag": "@ShadowProxy66_257",
+      "type": "vless"
+    },
+    {
+      "server": "bfc68.awayne.cloud",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "bfc68.awayne.cloud"
+      },
+      "transport": {
+        "path": "/vless",
+        "type": "ws",
+        "max_early_data": 4096,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "uuid": "5fef5b33-1e0e-4bbf-bdc1-18e214e406bf",
+      "tag": "@ShadowProxy66_107",
+      "type": "vless"
+    },
+    {
+      "server": "a63c4.awayne.cloud",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "a63c4.awayne.cloud"
+      },
+      "transport": {
+        "path": "/vless",
+        "type": "ws",
+        "max_early_data": 4096,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "uuid": "e4936d9e-5e77-437a-8eac-60d80ffa96b9",
+      "tag": "@ShadowProxy66_115",
+      "type": "vless"
+    },
+    {
+      "server": "55965.awayne.cloud",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "55965.awayne.cloud"
+      },
+      "transport": {
+        "path": "/vless",
+        "type": "ws",
+        "max_early_data": 4096,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "uuid": "dbfa1ead-4185-4b64-8b75-abe10272913b",
+      "tag": "@ShadowProxy66_119",
+      "type": "vless"
+    },
+    {
+      "server": "f8bae.awayne.cloud",
+      "server_port": 80,
+      "transport": {
+        "path": "/vmess",
+        "type": "ws",
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "uuid": "16147549-bfa6-4ec9-8e0c-bd6a2b5b4c5c",
+      "packet_encoding": "xudp",
+      "security": "auto",
+      "alter_id": 0,
+      "tag": "@ShadowProxy66_116",
+      "type": "vmess"
+    },
+    {
+      "server": "ip.ai-app-list.buzz",
+      "server_port": 2087,
+      "tls": {
+        "enabled": true,
+        "server_name": "us2.kirouch.fun",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc"
+      },
+      "uuid": "838f5273-5d2d-4630-a0f5-9cc8e4aef4d6",
+      "tag": "@ShadowProxy66_75",
+      "type": "vless"
+    },
+    {
+      "server": "zula.ir",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "ggfr.livingspringonline.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc"
+      },
+      "uuid": "416339cf-dadd-4831-987b-80f8434d2ebe",
+      "tag": "Channel+id:+@ShadowProxy66+🇨🇦_6",
+      "type": "vless"
+    },
+    {
+      "server": "66.81.247.132",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "gulz9.lasvegasescortshq.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc"
+      },
+      "uuid": "e0e31182-c51d-4a66-b2be-7d64bf49325d",
+      "tag": "@ShadowProxy66_242",
+      "type": "vless"
+    },
+    {
+      "server": "981e5.awayne.cloud",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "981e5.awayne.cloud"
+      },
+      "transport": {
+        "path": "/vless",
+        "type": "ws",
+        "max_early_data": 4096,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "uuid": "4b21c581-7c46-4364-a831-5bdf705e9294",
+      "tag": "@ShadowProxy66_126",
+      "type": "vless"
+    },
+    {
+      "server": "dlqee.awayne.cloud",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "dLQEe.awayne.cloud"
+      },
+      "transport": {
+        "path": "/vless",
+        "type": "ws",
+        "max_early_data": 4096,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "uuid": "2a7b92ca-a16d-4604-a433-8fef90b35ea4",
+      "tag": "@ShadowProxy66_127",
+      "type": "vless"
+    },
+    {
+      "server": "62.72.166.88",
+      "server_port": 2096,
+      "tls": {
+        "enabled": true,
+        "server_name": "jerrbest2.lasvegasescortshq.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc"
+      },
+      "uuid": "312da74b-60e9-4d3f-a736-1003b3bbf70e",
+      "tag": "@ShadowProxy66_264",
+      "type": "vless"
+    },
+    {
+      "server": "213.183.45.243",
+      "server_port": 48465,
+      "password": "gyD9TjHGGsiPNaFRUmv2VQ",
+      "method": "chacha20-ietf-poly1305",
+      "tag": "@ShadowProxy66_82",
+      "type": "shadowsocks"
+    },
+    {
+      "server": "series-a2-mec.samanehha.co",
+      "server_port": 443,
+      "password": "u17T3BvpYaaiuW2c",
+      "method": "chacha20-ietf-poly1305",
+      "tag": "Channel+id:+@ShadowProxy66🇬🇧_1",
+      "type": "shadowsocks"
+    },
+    {
+      "server": "213.183.45.22",
+      "server_port": 35034,
+      "password": "eMHfbY2u86W0P75cRaVVV3",
+      "method": "chacha20-ietf-poly1305",
+      "tag": "@ShadowProxy66_81",
+      "type": "shadowsocks"
+    },
+    {
+      "server": "213.183.45.19",
+      "server_port": 9024,
+      "password": "lF5O5uJxYuyby5vqKDKfgi",
+      "method": "chacha20-ietf-poly1305",
+      "tag": "@ShadowProxy66_80",
+      "type": "shadowsocks"
+    },
+    {
+      "server": "series-a2-mec.samanehha.co",
+      "server_port": 443,
+      "password": "u17T3BvpYaaiuW2c",
+      "method": "chacha20-poly1305",
+      "tag": "Channel+id:+@ShadowProxy66🇬🇧_2",
+      "type": "shadowsocks"
+    },
+    {
+      "server": "91.201.67.58",
+      "server_port": 31809,
+      "password": "a0kVTF93CXgKQZQQ3SaTdr",
+      "method": "chacha20-ietf-poly1305",
+      "tag": "@ShadowProxy66_88",
+      "type": "shadowsocks"
+    },
+    {
+      "server": "141.101.113.110",
+      "server_port": 80,
+      "tls": {
+        "enabled": true,
+        "server_name": "ehda.sajaditsme.com"
+      },
+      "transport": {
+        "path": "/?ed=2048",
+        "type": "ws",
+        "max_early_data": 4096,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "uuid": "bda4be04-48bf-4df1-aaf2-6d42522eab6b",
+      "tag": "Channel+id:+@ShadowProxy66+🇺🇸",
+      "type": "vless"
+    },
+    {
+      "server": "62.72.166.122",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "gulz3.lasvegasescortshq.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc"
+      },
+      "uuid": "e0e31182-c51d-4a66-b2be-7d64bf49325d",
+      "tag": "@ShadowProxy66_291",
+      "type": "vless"
+    },
+    {
+      "server": "176.120.74.142",
+      "server_port": 443,
+      "transport": {
+        "path": "/",
+        "type": "ws",
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "uuid": "75695f5a-b6af-44f4-9983-ae250b53ff9c",
+      "packet_encoding": "xudp",
+      "security": "auto",
+      "alter_id": 0,
+      "tag": "Channel id: @ShadowProxy66 🇪🇸",
+      "type": "vmess"
+    },
+    {
+      "server": "z-v2-003583.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_4",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003585.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_5",
+      "type": "trojan"
+    },
+    {
+      "server": "c3520.awayne.cloud",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "c3520.awayne.cloud"
+      },
+      "transport": {
+        "path": "/vless",
+        "type": "ws",
+        "max_early_data": 4096,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "uuid": "9309f156-f5f5-40a6-b95f-de954fee6b20",
+      "tag": "@ShadowProxy66_105",
+      "type": "vless"
+    },
+    {
+      "server": "z-v2-003589.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_6",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003520.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_7",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003612.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_8",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003586.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_9",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003542.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_10",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003638.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_11",
+      "type": "trojan"
+    },
+    {
+      "server": "104.21.20.148",
+      "server_port": 2096,
+      "tls": {
+        "enabled": true,
+        "server_name": "vpnct.arvancode.eu.org",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/bShq2qgG8GnX8zqm/?ed=2048",
+        "type": "ws",
+        "max_early_data": 4096,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "uuid": "f4cec6cc-6177-423c-90f8-2ad9f0dd996b",
+      "tag": "Channel+id:+@ShadowProxy66_3",
+      "type": "vless"
+    },
+    {
+      "server": "z-v2-003618.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_12",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003582.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_13",
+      "type": "trojan"
+    },
+    {
+      "server": "62.72.166.134",
+      "server_port": 2096,
+      "tls": {
+        "enabled": true,
+        "server_name": "jerrbest5.lasvegasescortshq.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc"
+      },
+      "uuid": "312da74b-60e9-4d3f-a736-1003b3bbf70e",
+      "tag": "@ShadowProxy66_262",
+      "type": "vless"
+    },
+    {
+      "server": "z-v2-003022.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_14",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003642.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_15",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003614.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_16",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003578.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_17",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003670.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_18",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003604.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_19",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003566.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_20",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003533.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_21",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003579.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_22",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003519.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_23",
+      "type": "trojan"
+    },
+    {
+      "server": "62.72.166.87",
+      "server_port": 2096,
+      "tls": {
+        "enabled": true,
+        "server_name": "jerrbest1.lasvegasescortshq.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc"
+      },
+      "uuid": "312da74b-60e9-4d3f-a736-1003b3bbf70e",
+      "tag": "@ShadowProxy66_260",
+      "type": "vless"
+    },
+    {
+      "server": "z-v2-003532.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_24",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003656.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_25",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003654.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_26",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003630.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_27",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003571.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_28",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003524.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_29",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003661.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_30",
+      "type": "trojan"
+    },
+    {
+      "server": "62.72.166.102",
+      "server_port": 2096,
+      "tls": {
+        "enabled": true,
+        "server_name": "jerrbest7.lasvegasescortshq.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc"
+      },
+      "uuid": "312da74b-60e9-4d3f-a736-1003b3bbf70e",
+      "tag": "@ShadowProxy66_266",
+      "type": "vless"
+    },
+    {
+      "server": "z-v2-003575.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_31",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003603.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_32",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003629.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_33",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003598.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_34",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003602.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_35",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003644.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_36",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003668.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_37",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003667.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_38",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003634.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_39",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003632.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_40",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003626.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_41",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003662.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_42",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003660.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_43",
+      "type": "trojan"
+    },
+    {
+      "server": "104.22.48.253",
+      "server_port": 80,
+      "tls": {
+        "enabled": true,
+        "server_name": "ehda.sajaditsme.com"
+      },
+      "transport": {
+        "path": "/?ed=2048",
+        "type": "ws",
+        "max_early_data": 4096,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "uuid": "bda4be04-48bf-4df1-aaf2-6d42522eab6b",
+      "tag": "Channel+id:+@ShadowProxy66_4",
+      "type": "vless"
+    },
+    {
+      "server": "z-v2-003580.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_44",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003658.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_45",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003657.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_46",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003669.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_47",
+      "type": "trojan"
+    },
+    {
+      "server": "195.16.74.40",
+      "server_port": 443,
+      "tls": {
+        "enabled": true
+      },
+      "uuid": "a9673307-d520-4150-85f5-2f858372c120",
+      "tag": "Channel+id:+@ShadowProxy66+_48",
+      "type": "vless"
+    },
+    {
+      "server": "82.117.255.234",
+      "server_port": 16628,
+      "password": "2k6or58K7rwViOXp8GdKC0",
+      "method": "chacha20-ietf-poly1305",
+      "tag": "@ShadowProxy66_123",
+      "type": "shadowsocks"
+    },
+    {
+      "server": "213.183.48.177",
+      "server_port": 55415,
+      "password": "zMMlMaz3tA8gwhXUujNVmO",
+      "method": "chacha20-ietf-poly1305",
+      "tag": "@ShadowProxy66_122",
+      "type": "shadowsocks"
+    },
+    {
+      "server": "62.72.166.120",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "gulz1.lasvegasescortshq.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc"
+      },
+      "uuid": "e0e31182-c51d-4a66-b2be-7d64bf49325d",
+      "tag": "@ShadowProxy66_254",
+      "type": "vless"
+    },
+    {
+      "server": "213.183.63.189",
+      "server_port": 16325,
+      "password": "MKkq0JOQHWbXkI1tE7ks69",
+      "method": "chacha20-ietf-poly1305",
+      "tag": "@ShadowProxy66_87",
+      "type": "shadowsocks"
+    },
+    {
+      "server": "z-v2-003535.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_49",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003652.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_50",
+      "type": "trojan"
+    },
+    {
+      "server": "104.16.254.147",
+      "server_port": 80,
+      "tls": {
+        "enabled": true,
+        "server_name": "ehda.sajaditsme.com"
+      },
+      "transport": {
+        "path": "/?ed=2048",
+        "type": "ws",
+        "max_early_data": 4096,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "uuid": "bda4be04-48bf-4df1-aaf2-6d42522eab6b",
+      "tag": "Channel+id:+@ShadowProxy66_5",
+      "type": "vless"
+    },
+    {
+      "server": "z-v2-003665.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_51",
+      "type": "trojan"
+    },
+    {
+      "server": "195.238.126.248",
+      "server_port": 63022,
+      "password": "YrXLRIIJyovWGfCqvVtuRl",
+      "method": "chacha20-ietf-poly1305",
+      "tag": "@ShadowProxy66_86",
+      "type": "shadowsocks"
+    },
+    {
+      "server": "z-v2-003664.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_52",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003595.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_53",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003599.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_54",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003554.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_55",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003639.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_56",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003641.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_57",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003640.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_58",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003645.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_59",
+      "type": "trojan"
+    },
+    {
+      "server": "74.119.193.64",
+      "server_port": 443,
+      "transport": {
+        "path": "/",
+        "type": "ws",
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "uuid": "faa2d852-e7a4-40b3-a011-e028b8a21f3b",
+      "packet_encoding": "xudp",
+      "security": "auto",
+      "alter_id": 0,
+      "tag": "Channel id: @ShadowProxy66 ",
+      "type": "vmess"
+    },
+    {
+      "server": "z-v2-003597.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_60",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003572.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_61",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003569.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_62",
+      "type": "trojan"
+    },
+    {
+      "server": "z-v2-003655.kailib.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "password": "wkmY1R4EcP",
+      "tag": "Channel+id:+@ShadowProxy66+_63",
+      "type": "trojan"
+    },
+    {
+      "server": "62.72.166.89",
+      "server_port": 2096,
+      "tls": {
+        "enabled": true,
+        "server_name": "jerrbest3.lasvegasescortshq.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc"
+      },
+      "uuid": "312da74b-60e9-4d3f-a736-1003b3bbf70e",
+      "tag": "@ShadowProxy66_251",
+      "type": "vless"
+    }
+  ],
+  "route": {
+    "geoip": {
+      "download_url": "https://github.com/soffchen/sing-geoip/releases/latest/download/geoip.db",
+      "download_detour": "select"
+    },
+    "geosite": {
+      "download_url": "https://github.com/soffchen/sing-geosite/releases/latest/download/geosite.db",
+      "download_detour": "select"
+    },
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "dns-out"
+      },
+      {
+        "network": "udp",
+        "port": 443,
+        "outbound": "block"
+      },
+      {
+        "clash_mode": "direct",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "global",
+        "outbound": "select"
+      },
+      {
+        "domain": [
+          "v2rayse.com",
+          "cfmem.com",
+          "vpnse.org",
+          "cff.pw",
+          "tt.vg"
+        ],
+        "outbound": "select"
+      },
+      {
+        "domain": [
+          "clash.razord.top",
+          "yacd.metacubex.one",
+          "yacd.haishan.me",
+          "d.metacubex.one"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "geosite": [
+          "openai"
+        ],
+        "outbound": "🤖 OpenAI"
+      },
+      {
+        "geosite": [
+          "google",
+          "github"
+        ],
+        "geoip": [
+          "google"
+        ],
+        "outbound": "🌌 Google"
+      },
+      {
+        "geosite": [
+          "telegram"
+        ],
+        "geoip": [
+          "telegram"
+        ],
+        "outbound": "📟 Telegram"
+      },
+      {
+        "geosite": [
+          "twitter"
+        ],
+        "geoip": [
+          "twitter"
+        ],
+        "outbound": "🐦 Twitter"
+      },
+      {
+        "geosite": [
+          "facebook",
+          "instagram"
+        ],
+        "geoip": [
+          "facebook"
+        ],
+        "outbound": "👤 Facebook"
+      },
+      {
+        "geosite": [
+          "amazon"
+        ],
+        "outbound": "🛍️ Amazon"
+      },
+      {
+        "geosite": [
+          "apple-cn",
+          "apple"
+        ],
+        "outbound": "🍎 Apple"
+      },
+      {
+        "geosite": [
+          "microsoft"
+        ],
+        "outbound": "🧩 Microsoft"
+      },
+      {
+        "geosite": [
+          "category-games"
+        ],
+        "outbound": "🎮 Game"
+      },
+      {
+        "geosite": [
+          "bilibili"
+        ],
+        "outbound": "📺 Bilibili"
+      },
+      {
+        "geosite": [
+          "tiktok",
+          "netflix",
+          "hbo",
+          "disney",
+          "primevideo"
+        ],
+        "geoip": [
+          "netflix"
+        ],
+        "outbound": "🎬 MediaVideo"
+      },
+      {
+        "geosite": [
+          "geolocation-!cn"
+        ],
+        "outbound": "🌏 !cn"
+      },
+      {
+        "geosite": [
+          "cn"
+        ],
+        "geoip": [
+          "private",
+          "cn"
+        ],
+        "outbound": "🌏 cn"
+      },
+      {
+        "geosite": [
+          "category-ads-all"
+        ],
+        "outbound": "🛑 AdBlock"
+      }
+    ],
+    "auto_detect_interface": true,
+    "final": "select"
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "path": "cache.db"
+    }
+  }
+}
